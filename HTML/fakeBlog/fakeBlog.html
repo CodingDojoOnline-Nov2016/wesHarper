@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wes's fake blog!</title>
+	<meta name="description" content="This is the one and only document that can be used to read Wes's fake blog!">
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Blog Posts</h1>
+		<div class="blogPosts">
+			<h2>First Post</h2>
+			<p>I've included a few lists of companies I'm working on. I can't wait to get better as a full-stack developer so I can contribute more to the code!</p>
+			<h3>Companies I've founded</h3>
+			<ul>
+				<li>
+					<a href="https://viewzr.com"><span class="companyName">Viewzr</span> - a video streaming website</a>
+				</li>
+				<li>
+					<a href="http://tao.team"><span class="companyName">Tao Team</span> - a digital agency with an unfinished Wordpress portfolio site</a>
+				</li>
+			</ul>
+			<h3>Companies I'm working with</h3>
+			<ul>	
+				<li>
+					<a href="http://cultivatedvibes.com"><span class="companyName">Cultivated Vibes</span> - an unfinished platform for music curated by Mike Ali</a>
+				</li>
+			</ul>
+			<p>Here's a visual representation of the stage each company's current progress.</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Company Name</th>
+						<th>Company Stage</th>
+						<th>Stack</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Viewzr</td>
+						<td>Beta</td>
+						<td>MEAN</td>
+					</tr>
+					<tr>
+						<td>Tao Team</td>
+						<td>Pre-Beta</td>
+						<td>Wordpress</td>
+					</tr>
+					<tr>
+						<td>Cultivated Vibes</td>
+						<td>Pre-Beta</td>
+						<td>Wordpress</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h2>Have something to say? Send us your feedback!</h2>
+		<form name="blogSurvey" method="post">
+			<p>What's your name?</p>
+			<label>
+				First:<input type="text" name="firstName" placeholder="Vanilla">
+			</label>
+			<label>
+				Last:<input type="text" name="lastName" placeholder="Ice">
+			</label>
+			<p>Why are you reaching out to us?</p>
+			<label>
+				<input type="radio" name="reason" value="0">I'm just saying hi!
+			</label>
+			<label>
+				<input type="radio" name="reason" value="1">I haven't really thought it through.
+			</label>
+			<label>
+				<input type="radio" name="reason" value="2">Because your website sucks.
+			</label>
+			<p>Which of the following things do you wish would change?</p>
+			<label>
+				<input type="checkbox" name="wish" value="0">I wish world hunger would end.
+			</label>
+			<label>
+				<input type="checkbox" name="wish" value="1">I wish this page had styles.
+			</label>
+			<label>
+				<input type="checkbox" name="wish" value="2">I wish the average salary for a teacher was 7 figures.
+			</label><br>
+			<input type="submit" value="Send answers to the abyss">
+		</form>
+	</div>
+</body>
+</html>
