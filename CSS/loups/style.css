@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Times New Roman", Times, serif;
+}
+.wrapper {
+	width: 970px;
+	background-color: #f2f2f2;
+	padding: 10px 40px 30px 10px;
+}
+.header {
+	background-color: Gainsboro;
+	padding: 15px;
+	border-radius: 25px;
+	font-size: 16pt;
+	margin-bottom: 20px;
+}
+.sideMenu {
+	background-color: Gainsboro;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 15px 30px;
+	font-size: 12pt;
+	margin-right: 20px;
+	vertical-align: top;
+}
+.sideMenu a{
+	text-decoration: none;
+}
+.sideMenu .homeNav {
+	list-style-type: none;
+}
+#articles {
+	color: maroon;
+}
+.subNav li{
+	margin-left: 20px;
+}
+.mainContent {
+	background-color: DarkGray;
+	display: inline-block;
+	width: 654px;
+	padding: 40px 10px 40px 40px;
+	border-radius: 25px;
+	margin-bottom: 20px;
+}
+.mainContent h2 {
+	font-size: 22pt;
+	margin-bottom: 25px;
+}
+.mainContent p {
+	font-size: 12pt;
+}
+.mainContent ul {
+	margin-left: 40px;
+	font-size: 12pt;
+}
+.mainContent ul li {
+	margin-top: 20px;
+}
+.bold {
+	font-weight: bold;
+}
+.footer {
+	background-color: Gainsboro;
+	border-radius: 25px;
+	padding: 20px 10px;
+}
