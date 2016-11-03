@@ -4,7 +4,7 @@
 //However, if it is divisible by 400 then it is.
 
 function isLeapYear(year) {
-	if((Math.abs(year % 4) === 0 && Math.abs(year % 100) != 0) || Math.abs(year % 400) === 0) {
+	if((year % 4 === 0 && year % 100 != 0) || year % 400 === 0) {
 		console.log("Yep, that's a leap year.")
 	} else {
 		console.log("Nah, that's not a leap year.")
@@ -15,4 +15,3 @@ isLeapYear(2000);
 isLeapYear(1991);
 isLeapYear(400);
 isLeapYear(500);
-isLeapYear(-400);

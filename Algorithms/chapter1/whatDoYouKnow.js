@@ -5,4 +5,5 @@ function whatIKnow(incoming) {
 	console.log(incoming);
 }
 
-whatIKnow("Something");
+var something = "nothing";
+whatIKnow(something);
