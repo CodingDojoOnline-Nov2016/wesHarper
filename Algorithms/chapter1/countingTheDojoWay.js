@@ -18,7 +18,7 @@ dojoWay();
 //shoot for solving problem in 1 line
 function dojoWay2(){
 	for(var num = 1; num < 101; num++) {
-		value = num % 5 === 0 && num % 10 === 0 ? "Coding Dojo" : value = num % 5 === 0 ? "Coding" : num;
+		var value = num % 5 === 0 && num % 10 === 0 ? "Coding Dojo" : value = num % 5 === 0 ? "Coding" : num;
 		console.log(value);
 	}
 }
