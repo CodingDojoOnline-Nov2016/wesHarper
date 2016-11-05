@@ -5,10 +5,13 @@
 function countdown(num) {
 	var arr = [];
 	for (var i = num; i >= 0; i--) {
-		arr.push(i);
+		//arr.push(i);
+		arr[arr.length] = i;
 	}
 	console.log(arr.length);
-	console.log(arr);
+	return arr;
 }
 
-countdown(11);
+//store the returned value somewhere for reuse.
+var info = countdown(11);
+console.log(info);

@@ -1,0 +1,150 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: verdana, sans-serif;
+	border: 0px;
+}
+
+h1 {
+	font-family: "Times New Roman", serif;
+	color: white;
+	font-size: 18pt;
+	font-weight: normal;
+	vertical-align: top;
+	margin-top: 21px;
+}
+
+h2 {
+	color: darkred;
+}
+
+h3 {
+	color: darkred;
+	margin: 10px 0px;
+}
+
+a {
+	color: darkred;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.wrapper {
+	width: 970px;
+}
+
+.header {
+	background: darkred;
+    padding: 5px 40px;
+}
+
+.logo {
+	display: inline-block;
+}
+
+	.logo h1 {
+		display: inline-block;
+	}
+
+.mastheadRight {
+	font-size: 8pt;
+	vertical-align: top;
+	display: inline-block;
+	text-align: right;
+	color: white;
+	margin-left: 150px;
+}
+
+	.mastheadRight a {
+		color: gold;
+	}
+
+	.mastheadRight ul li {
+		display: inline-block;
+	}
+
+.mastLinks {
+	margin-bottom: 8px;
+}
+
+.topNav {
+	background-color: gainsboro;
+	color: darkgrey;
+	border-bottom: solid 1px darkgrey;
+	padding: 5px 20px;
+}
+
+	.topNav ul {
+		list-style-type: none;
+	}
+
+	.topNav ul li {
+		display: inline-block;
+		padding: 0px 10px 5px 15px;
+	}
+
+	.topNav li~li {
+		border-left: solid 1px darkgrey;
+	}
+
+	.topNav a {
+		text-decoration: none;
+		color: #4d4d4d;
+		font-weight: bold;
+		font-size: 11px;
+	}
+
+.mastSearch button {
+	border-radius: 0px;
+	border: solid 1px white;
+	background-color: darkred;
+	padding: 1px 3px;
+	color: white;
+}
+
+.bodyWrap {
+	padding: 30px;
+}
+
+.sideNav {
+	background-color: gainsboro;
+	border: solid 1px darkgrey;
+	display: inline-block;
+	width: 115px;
+	padding: 10px 10px 10px 30px;
+	font-size: 9pt;
+	vertical-align: top;
+}
+
+	.sideNav li~li {
+		margin-top: 4px;
+	}
+
+.body {
+	display: inline-block;
+	width: 685px;
+	padding: 0px 30px;
+	font-size: 9pt;
+}
+
+	.body h3 {
+		font-size: 9pt;
+	}
+
+	.body ul {
+		margin-left: 30px;
+	}
+
+	.body ol {
+		margin-left: 30px;
+	}
+
+	.body div~div {
+		border-top: solid 2px darkgrey;
+	}
+
+	.body div {
+		padding-bottom: 5px;
+	}

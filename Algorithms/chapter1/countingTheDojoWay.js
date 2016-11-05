@@ -2,13 +2,13 @@
 //Print integers 1 to 100. If divisible by 5, print "Coding" instead. If by 10, also print " Dojo".
 
 function dojoWay(){
-	for(var num = 1; num < 101; num++) {
-		if(num % 5 === 0 && num % 10 === 0) {
+	for(var i = 1; i < 101; i++) {
+		if(i % 5 === 0 && i % 10 === 0) {
 			console.log("Coding Dojo");
-		} else if(num % 5 === 0) {
+		} else if(i % 5 === 0) {
 			console.log("Coding");
 		} else {
-			console.log(num);
+			console.log(i);
 		}
 	}
 }
@@ -17,9 +17,8 @@ dojoWay();
 
 //shoot for solving problem in 1 line
 function dojoWay2(){
-	for(var num = 1; num < 101; num++) {
-		var value = num % 5 === 0 && num % 10 === 0 ? "Coding Dojo" : value = num % 5 === 0 ? "Coding" : num;
-		console.log(value);
+	for(var i = 1; i < 101; i++) {
+		i % 10 === 0 ? console.log("Coding Dojo") : i % 5 === 0 ? console.log("Coding") : console.log(i);
 	}
 }
 
