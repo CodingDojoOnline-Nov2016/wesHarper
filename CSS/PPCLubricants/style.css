@@ -43,15 +43,14 @@
 	.nav ul {
 		list-style-type: none;
 	}
-		.nav :last-child {
-			border-right: solid darkgrey 2px;
-		}
 
 	.nav ul li {
 		display: inline-block;
 		padding: 8px 11px;
 		font-size: 12px;
-		border-left: solid grey 2px;
+		border-left: solid white 1.5px;
+		border-top: solid white 1.5px;
+		border-right: solid darkgrey 1.5px;
 	}
 
 	.nav ul li a{
