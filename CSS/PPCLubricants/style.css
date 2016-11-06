@@ -8,13 +8,17 @@
 	width: 970px;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 .header {
 	background: #e6e6e6; 
     background: -webkit-linear-gradient(#e6e6e6, white 45%); 
     background: -o-linear-gradient(#e6e6e6, white 45%); 
     background: -moz-linear-gradient(#e6e6e6, white 45%);
     background: linear-gradient(#e6e6e6, white 45%);
-	padding: 0px 30px 2px 30px;
+	padding: 0px 15px 2px 15px;
 	border-bottom: solid darkgrey 2px;
 }
 
@@ -23,8 +27,10 @@
 	}
 
 	.header h1{
-		font-size: 18pt;
+		font-size: 15pt;
 		vertical-align: top;
+		margin-left: 230px;
+		margin-top: 35px;
 	}
 
 .topMenu {
@@ -32,31 +38,138 @@
 }
 
 .nav {
-	background: silver; 
-    background: -webkit-linear-gradient(#e6e6e6 30%, silver, whitesmoke); 
-    background: -o-linear-gradient(#e6e6e6 30%, silver, whitesmoke); 
-    background: -moz-linear-gradient(#e6e6e6 30%, silver, whitesmoke);
-    background: linear-gradient(#e6e6e6 30%, silver, whitesmoke);
-	padding: 0px 40px;
+	background: #e6e6e6; 
+    background: -webkit-linear-gradient(#f2f2f2 25%, #d9d9d9, #e6e6e6, whitesmoke 98%); 
+    background: -o-linear-gradient(#f2f2f2 25%, #d9d9d9, #e6e6e6, whitesmoke 98%); 
+    background: -moz-linear-gradient(#f2f2f2 25%, #d9d9d9, #e6e6e6, whitesmoke 98%);
+    background: linear-gradient(#f2f2f2 25%, #d9d9d9, #e6e6e6, whitesmoke 98%);
+	padding: 0px 25px;
 }
 
 	.nav {
 		list-style-type: none;
 	}
 
-	.nav li {
-		display: inline-block;
-		padding: 8px 11px;
-		font-size: 12px;
-		border-left: solid grey 2px;
+	.nav :nth-child(7) {
+		border-right: solid darkgrey 2px;
 	}
 
-	.nav  :last-child{
-		border-right: solid darkgrey 2px;
+	.nav li {
+		display: inline-block;
+		padding: 8px 15px;
+		font-size: 8pt;
+		border-left: solid darkgrey 2px;
 	}
 
 	.nav a{
 		text-decoration: none;
 		font-weight: bold;
 		color: #585858;
+	}
+
+.topMenu img {
+	margin-left: 15px;
+}
+
+.body {
+	background: black; 
+    background: -webkit-radial-gradient(50% 40%, closest-side, grey, #333333, black); 
+    background: -o-radial-gradient(50% 40%, closest-side, grey, #333333, black); 
+    background: -moz-radial-gradient(50% 40%, closest-side, grey, #333333, black);
+    background: radial-gradient(closest-side at 50% 40%, grey, #333333, black);
+	padding: 20px 25px;
+}
+
+#mainPic {
+	vertical-align: top;
+	border: solid white 6px;
+}
+
+.contentMain {
+	width: 495px;
+	height: 267px;
+	display: inline-block;
+	margin-left: 20px;
+	background: rgba(255, 255, 255, 0.3);
+	color: white;
+}
+
+	.contentMain .textBox {
+		padding: 15px;
+	}
+
+	.contentMain h3 {
+		font-size: 12pt;
+	}
+
+	.contentMain p {
+		font-size: 9pt;
+		margin-top: 15px;
+	}
+
+.contentHeader {
+	background: #ffcc00; 
+    background: -webkit-linear-gradient(#ffd663 50%, #ffcc00, #ffd663 98%); 
+    background: -o-linear-gradient(#ffd663 50%, #ffcc00, #ffd663 98%); 
+    background: -moz-linear-gradient(#ffd663 50%, #ffcc00, #ffd663 98%);
+    background: linear-gradient(#ffd663 50%, #ffcc00, #ffd663 98%);
+    padding: 7px 13px;
+    border: solid black 0.1px;
+    font-size: 10pt;
+    color: black;
+}
+
+#miniLogo {
+	margin: 10px 10px 8px 10px;
+}
+
+.newOffer {
+	color: #b2b266;
+	font-size: 9pt;
+	vertical-align: top;
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 14px;
+}
+
+.subContent {
+	display: inline-block;
+	background: white; 
+    background: -webkit-linear-gradient(white 75%, #ffffe6); 
+    background: -o-linear-gradient(white 75%, #ffffe6); 
+    background: -moz-linear-gradient(white 75%, #ffffe6);
+    background: linear-gradient(white 75%, #ffffe6);
+    width: 222px;
+    vertical-align: top;
+    margin-left: 2px;
+}
+/* Can compromise either margin value or wrapper width. I chose to compromise margin value*/
+
+	.subContent .contentHeader {
+		font-size: 9pt;
+	}
+
+	.subContent img {
+		width: 222px;
+		height: 101px;
+	}
+
+	.subContent .textBox {
+		padding: 15px;
+	}
+
+	.subContent p {
+		font-size: 8pt;
+		min-height: 60px;
+	}
+
+	.subContent button {
+		margin-top: 15px;
+		margin-left: 100px;
+		width: 90px;
+		padding: 4px 10px 5px 10px;
+		font-size: 7pt;
+		background: #ffcc00;
+		border: solid black 2px;
+		border-radius: 5px;
 	}
