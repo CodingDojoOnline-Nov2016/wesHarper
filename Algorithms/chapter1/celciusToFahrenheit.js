@@ -24,7 +24,7 @@ function findEquilibrium() {
 
 findEquilibrium();
 
-//rewrite as while loop because it should not be known how many run throughs are needed
+//rewrite as while loop for practice
 
 function findEquilibrium2() {
 	var fDegrees = 0;
