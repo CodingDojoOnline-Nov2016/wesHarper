@@ -8,7 +8,7 @@ function makeItBig(arr) {
 			arr[i] = "big";
 		}
 	}
-	console.log(arr);
+	return arr;
 }
 
 var array = [-1, 3, 5, -5];

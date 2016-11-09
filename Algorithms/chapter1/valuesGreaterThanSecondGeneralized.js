@@ -35,4 +35,6 @@ function greaterThanSecondGen2(arr) {
 }
 
 var arr2 = [10];
+var arr3 = [10, 11, 12, 13, 14];
 greaterThanSecondGen2(arr2);
+greaterThanSecondGen2(arr3);

@@ -5,11 +5,10 @@
 function prtLoRetHi(arr) {
 	var min = arr[0];
 	var max = arr[0];
-	for(var i = 0; i < arr.length; i++) {
+	for(var i = 1; i < arr.length; i++) {
 		if(arr[i] < min) {
 			min = arr[i];
-		}
-		if(arr[i] > max) {
+		} else if(arr[i] > max) {
 			max = arr[i];
 		}	
 	}
