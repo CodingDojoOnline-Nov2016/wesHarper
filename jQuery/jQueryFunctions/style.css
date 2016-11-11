@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-style: verdana, arial, sans-serif;
+}
+
+.wrapper {
+	min-width: 970px;
+}
+
+.divider {
+	height: 2px;
+	background-color: black;
+	margin-top: 15px;
+}
+
+.bermuda {
+	display: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+h1, h2 {
+	text-align: center;
+	margin-top: 60px;
+}
+
+h2 {
+	font-size: 20pt;
+}
+
+h5 {
+	text-align: center;
+	margin-top: 15px;
+	font-weight: normal;
+}
+
+button, p {
+	font-size: 14pt;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20%;
+}
+
+input[value="yes"] {
+	margin-left: 20%
+}

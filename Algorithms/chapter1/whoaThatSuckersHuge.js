@@ -13,14 +13,14 @@ function addOdds(start, end) {
 
 addOdds(-30000, 30000);
 
-//Shortcut
-//Just know how to do simple math? Ha
-//I'm guessing the shortcut would be to use absolute value instead of logical or.
+//Shortcut?
+//Just know how to do simple math? console.log(0) Ha
+//Not very short shortcut
 
 function addOddsShort(start, end) {
 	var sum = 0;
 	for(var i = start; i <= end; i++) {
-		if(Math.abs(i % 2) === 1) {
+		if(i % 2 !== 0) {
 			sum += i;
 		}
 	}

@@ -4,6 +4,9 @@
 // new function test for each disaster independently, instead of assuming exactly one disaster will happen.
 // In other words, with this new function, all five might occur today - or none. Maybe Kenny will survive!
 
+
+// 10% chance of volcano, 15% chance of tsunami, 20% chance of earthquake,
+// 25% chance of blizzard, and 30% chance of meteor strike
 function whatReallyHappensToday() {
 	var disasterList = [];
 	var probV = Math.random();
@@ -11,23 +14,27 @@ function whatReallyHappensToday() {
 	var probE = Math.random();
 	var probB = Math.random();
 	var probM = Math.random();
-	if(0 <= probV && probV < .09) {
+	if(probV < .1) {
 		disasterList.push("volcano");
 	}
-	if(.09 < probV && probV < .24) {
+	if(probT < .15) {
 		disasterList.push("tsunami");
 	}
-	if(.24 < probE && probE < .44) {
+	if(probE < .20) {
 		disasterList.push("earthquake");
 	}
-	if(.44 < probB && probB < .69) {
+	if(probB < .25) {
 		disasterList.push("blizzard");
 	}
-	if(.69 < probM && probM < 1) {
+	if(probM < .30) {
 		disasterList.push("meteor strike");
 	}
 	console.log(disasterList);
-	console.log("Today Kenny has died in the following accidents: " + disasterList + " ... bummer.");
+	if(disasterList.length > 0) {
+		console.log("Today Kenny has died in the following accidents: " + disasterList + " ... bummer.");
+	} else {
+		console.log("Kenny isn't dead!?");
+	}
 }
 
 whatReallyHappensToday();

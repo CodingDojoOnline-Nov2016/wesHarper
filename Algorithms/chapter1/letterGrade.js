@@ -5,20 +5,24 @@
 // Grade: B". Given the score 61, log the score "Score: 61. Grade: D".
 
 function letterGrade(score) {
-	if (score >= 0 && score < 60) {
-		console.log("Score: " + score + ". Grade: F");
-	} else if(score >= 60 && score < 70) {
-		console.log("Score: " + score + ". Grade: D");
-	} else if(score >= 70 && score < 80) {
-		console.log("Score: " + score + ". Grade: C");
-	} else if(score >= 80 && score < 90) {
-		console.log("Score: " + score + ". Grade: B");
-	} else if(score >= 90 && score < 100) {
-		console.log("Score: " + score + ". Grade: A");
+	var grade;
+	if (score >= 0 && score <= 100) {	
+		if (score < 60) {
+			grade = "F";
+		} else if(score < 70) {
+			grade = "D";
+		} else if(score < 80) {
+			grade = "C";
+		} else if(score < 90) {
+			grade = "B";
+		} else if(score < 100) {
+			grade = "A";
+		}
+	console.log("Score: " + score + ". Grade: " + grade);
 	} else if(score >= 100) {
-		console.log("Woah, you got a score of " + score + "!? You're such an overachiever.");
+		console.log("Woah, you got a score of " + score + "!? You're such an overachiever. Your grade is an A.");
 	} else {
-		console.log("Either you did so poorly in this class you managed to get less than a 0, or I've accidentally logged your grade as something other than a number!");
+		console.log("Either you did so poorly in this class you managed to get a score less than 0, or I've accidentally logged your grade as something other than a number!");
 	}
 }
 

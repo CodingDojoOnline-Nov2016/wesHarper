@@ -6,8 +6,8 @@
 
 var bogdansIQ = 101;
 
-function calcIQ(initialIQ) {
-	var newIQ = initialIQ;
+function calcIQ(initIQ) {
+	var newIQ = initIQ;
 	for(var iqbump = 1; iqbump < 99; iqbump++) {
 		newIQ += iqbump / 100;
 	}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Functions!</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is a static web page that illustrates various jQuery functions in action.">
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="jQuery.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>This is a list of jQuery functions in action!</h1>
+			<h2>.addClass</h2>
+			<button type="button" name=".addClassButton" value="addClass" id="addClass">Click Me!</button>
+			<p id="addClassP">Click this button to add class "bermuda" to this paragraph.</p>
+			<div class="divider"></div>
+			<h2>.val</h2>
+			<input type="radio" name="valRadio" value="yes">Yes</input>
+			<input type="radio" name="valRadio" value="no">No</input>
+			<p id="valP">Click an option to see the input's current value. Value: <span id="radioValue"></span></p>
+			<div class="divider"></div>
+			<h2>.text</h2>
+			<button type="button" name=".textButton" value="text" id="text">Click Me!</button>
+			<p id="textP">Click this button to <span class="bold">pull only the text</span> from this paragraph and add it to a new header.</p>
+			<h5 id="newText"></h5>
+			<div class="divider"></div>
+			<h2>.attr</h2>
+			<button type="button" name=".attrButton" value="attr" id="attr">Click Me!</button>
+			<p id="attrP">Click this button to see the name attribute for this button. Name: <span id="attrName"></span></p>
+			<div class="divider"></div>
+			<h2>.html</h2>
+			<button type="button" name=".htmlButton" value="html" id="html">Click Me!</button>
+			<p id="htmlP">Click this button to add a string to the span element in this paragraph. <span id="htmlStr"></span></p>
+			<div class="divider"></div>
+			<h2>.focus</h2>
+			<button type="button" name=".focusButton" value="focus" id="focus">Click Me!</button>
+			<p id="focusP">Click this button to focus on the button above. Focus!</p>
+			<div class="divider"></div>
+		</div>
+	</body>
+</html>

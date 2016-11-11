@@ -35,7 +35,7 @@ function alwaysHungry2(arr) {
 		if(arr[i] === "food") {
 			numFood++;
 			if(numFood % 3 === 0) {
-				console.log("in my tummy")
+				console.log("in my tummy");
 			} else {
 				console.log("yummy");
 			}

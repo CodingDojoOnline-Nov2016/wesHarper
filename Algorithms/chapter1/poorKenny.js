@@ -7,15 +7,15 @@
 function whatHappensToday() {
 	var disaster;
 	var randNum = Math.random();
-	if(0 <= randNum && randNum < .09) {
+	if(randNum < .1) {
 		disaster = "volcano";
-	} else if(.09 < randNum && randNum < .24) {
+	} else if(randNum < .25) {
 		disaster = "tsunami";
-	} else if(.24 < randNum && randNum < .44) {
+	} else if(randNum < .45) {
 		disaster = "earthquake";
-	} else if(.44 < randNum && randNum < .69) {
+	} else if(randNum < .70) {
 		disaster = "blizzard";
-	} else if(.69 < randNum && randNum < 1) {
+	} else if(randNum < 1) {
 		disaster = "meteor strike";
 	}
 	console.log("Today Kenny has died in a " + disaster + " ... bummer.");

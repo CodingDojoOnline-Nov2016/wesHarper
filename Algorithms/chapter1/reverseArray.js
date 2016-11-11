@@ -4,9 +4,8 @@
 
 function reverseArr(arr) {
 	var i = 0;
-	var n = arr.length
+	var n = arr.length;
 	while(i < n) {
-		console.log(arr);
 		temp = arr[i];
 		arr[i] = arr[n - 1];
 		arr[n - 1] = temp;
