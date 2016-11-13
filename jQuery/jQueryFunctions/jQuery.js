@@ -21,4 +21,43 @@ $(document).ready(function() {
 	$('#focus').click(function() {
 		$('#html').focus();
 	});
+	$('#data').click(function() {
+		$("#dataP").data("test", "Yo Mamma!");
+		// console.log($("#dataP").data("test"));
+		$('#dataVal').text($("#dataP").data("test"));
+	});
+	$("#before").click(function() {
+		$("#beforeP").before("<span>Big Bang</span>");
+	});
+	$("#after").click(function() {
+		$("#afterP").after("<span>Black Hole</span>");
+	});
+	$("#append").click(function() {
+		$("#appendP").append("tail");
+	});
+	$("#show").click(function() {
+		$("#showMe").show();
+	});
+	$("#hide").click(function() {
+		$("#hideMe").hide();
+	});
+	$("#toggle").click(function() {
+		$("#option1").toggle();
+		$("#option2").toggle();
+	});
+	$("#fadeIn").click(function() {
+		$("#fadingIn").fadeIn(1200);
+	});
+	$("#fadeOut").click(function() {
+		$("#fadingOut").fadeOut(1200);
+	});
+	$("#slideDown").click(function() {
+		$("#slidingDown").slideDown();
+	});
+	$("#slideUp").click(function() {
+		$("#slidingUp").slideUp();
+	});
+	$("#slideToggle").click(function() {
+		$("#slidingToggle").slideToggle();
+	})
 })
