@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Adding A User!</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is a page where you can add users to a table dynamically!">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="jQuery.js"></script>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Contact #</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div class="contact-form">
+			<h1>Add User</h1>
+			<form name="new-user" action="" method="post">
+				<label>
+					First Name: <input type="text" name="first-name" placeholder="First Name">
+				</label>
+				<label>
+					Last Name: <input type="text" name="last-name" placeholder="Last Name">
+				</label>
+				<label>
+					Email Address: <input type="text" name="email" placeholder="Email Address">
+				</label>
+				<label>
+					Contact No. <input type="text" name="contact-num" placeholder="Phone Number">
+				</label>
+				<button type="button" name="add-user" id="add-user">Add User</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -12,3 +12,23 @@ function arrayWithOdds(start, end) {
 }
 
 arrayWithOdds(1, 255);
+
+
+function arrayWithOdds2(start, end) {
+	var array = [];
+	i = end; 
+	if(end % 2 == 1) {
+		while(i > start) {
+			array.push(i);
+			i -= 2;
+		}
+	} else {
+		while(i > start) {
+			array.push(i);
+			i -= 2;
+		}
+	}
+	console.log(array);
+}
+
+arrayWithOdds2()

@@ -24,7 +24,7 @@ $(document).ready(function() {
 	$('#data').click(function() {
 		$("#dataP").data("test", "Yo Mamma!");
 		// console.log($("#dataP").data("test"));
-		$('#dataVal').text($("#dataP").data("test"));
+		$('#dataVal').append($("#dataP").data("test"));
 	});
 	$("#before").click(function() {
 		$("#beforeP").before("<span>Big Bang</span>");
