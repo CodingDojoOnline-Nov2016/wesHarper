@@ -1,0 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 5%;
+}
+
+#sortable-images {
+	list-style-type: none;
+	background-color: none;
+	display: inline-block;
+}
