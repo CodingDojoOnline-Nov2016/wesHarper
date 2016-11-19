@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact Card</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is a front-end only app that allows you to enter contact info and display it on the page.">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<form name="contact-info" action="" method="post">
+				<label>
+					First Name: <input type="text" name="first-name" placeholder="First Name">
+				</label>
+				<label>
+					Last Name: <input type="text" name="last-name" placeholder="Last Name">
+				</label>
+				<label>
+					Description: <textarea name="description" rows="10" columns="40" placeholder="Enter Description"></textarea>
+				</label>
+				<input type="submit" name="add-user" value="Add User">
+			</form>
+			<div class="card-box">
+			</div>
+		</div>
+	</body>
+</html>

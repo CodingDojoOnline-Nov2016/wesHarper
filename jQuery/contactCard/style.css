@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: arial, sans-serif;
+}
+
+.wrapper {
+	width: 100%;
+	padding: 2%;
+}
+
+	form {
+		width: 34%;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+		label {
+			display: block;
+			margin-top: 15px;
+		}
+
+		textarea {
+			display: block;
+			margin-top: 5px;
+		}
+
+		input[name='add-user'] {
+			margin-top: 15px;
+		}
+
+	.card-box {
+		display: inline-block;
+		width: 64%;
+	}
+
+		.card {
+			background-color: grey;
+			vertical-align: top;
+			height: 150px;
+			width: 50%;
+			border: 1px solid black;
+		}
