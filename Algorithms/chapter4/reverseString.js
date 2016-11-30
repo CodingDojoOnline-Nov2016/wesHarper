@@ -7,5 +7,5 @@ function reverseString(str) {
 }
 
 var string = "abc";
-reverseString(string);
+console.log(reverseString(string));
 

@@ -5,13 +5,12 @@
 function removeBlanks(str) {
 	var newString = "";
 	for(var i = 0; i < str.length; i++) {
-		if(str[i] != " " && str[i].charCodeAt() != 09 && str[i].charCodeAt() != 11) {
+		if(str[i] != " " && str[i].charCodeAt() != 09 && str[i] != "\n") {
 			newString += str[i];
 		}
 	}
 	return newString;
 }
 
-var string = " Pl     ayTha   tF     u      nkyM      us	i      c    \
-";
-removeBlanks(string);
+var string = " Pl     ayTha   tF     u      nk\nyM      us	i      c    ";
+console.log(removeBlanks(string));
