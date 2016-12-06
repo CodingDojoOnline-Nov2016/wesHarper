@@ -9,7 +9,7 @@ function parensValid(string) {
 		} else if(string[i] == ')') {
 			parensnum--;
 		}
-		if (parensnum > 0) {
+		if (parensnum < 0) {
 			return false;
 		}
 	}

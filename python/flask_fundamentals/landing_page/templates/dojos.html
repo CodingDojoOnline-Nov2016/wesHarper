@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is for adding a ninja!">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+	</head>
+	<body>
+		<h1>Add a new Ninja!</h1>
+		<ul>
+			<li><a href="/">Home</a></li>
+		</ul>
+		<form name="ninja-form" method="get" action="/">
+			<label>	
+				First Name: <input type="text" name="first-name" placeholder="Robert">
+			</label>
+			<label>
+				Middle: <input type="text" name="middle-name" placeholder="Matthew">
+			</label>
+			<label>
+				Last Name: <input type="text" name="last-name" placeholder="Van Winkle">
+			</label>
+			<label>
+				Nickname: <input type="text" name="nickname" placeholder="Vanilla Ice">
+			</label>
+			<input type="submit" name="submit">
+		</form>
+	</body>
+</html>

@@ -1,17 +1,5 @@
 //bracesvalid
 
-//"({[]})" = true
-//"({[)]}" = false
-//"()[]{}" = true
-//(hello){its me [whatever]} = true
-//false
-
-var str1 = "({[]})"
-var str2 = "({[)]}"
-var str3 = "()[]{}"
-var str4 = "(hello){its me [whatever]}"
-var str5 = "(hello){its me [whatever]}("
-
 function bracesValid(str) {
 	var braces = {
 			')':'(',
@@ -31,6 +19,17 @@ function bracesValid(str) {
 	}
 	return !opens.length;
 }
+
+//"({[]})" = true
+//"({[)]}" = false
+//"()[]{}" = true
+//(hello){its me [whatever]} = true
+//false
+var str1 = "({[]})"
+var str2 = "({[)]}"
+var str3 = "()[]{}"
+var str4 = "(hello){its me [whatever]}"
+var str5 = "(hello){its me [whatever]}("
 
 console.log(bracesValid(str1));
 console.log(bracesValid(str2));

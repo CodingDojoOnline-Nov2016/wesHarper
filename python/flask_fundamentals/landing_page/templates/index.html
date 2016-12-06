@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is a website for learning about ninjas and dojos!">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+	</head>
+	<body>
+		<h1>Hello! Time to learn about ninjas!</h1>
+		<ul>
+			<li><a href="/ninjas">Ninja info</a></li>
+			<li><a href="/dojos/new">Add a new ninja!</a></li>
+		</ul>
+	</body>
+</html>
