@@ -32,4 +32,4 @@ String.prototype.slicer = function (start, end) {
 
 var str1 = "Hello World";
 
-console.log(str1.slicer(-3, -4));
+console.log(str1.slicer(-3, 0));
