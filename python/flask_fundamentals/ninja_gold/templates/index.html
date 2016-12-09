@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div id="gold-counter">
+			<p>Your Gold:</p>
+			<div>
+				<p> {{ session['gold_count'] }} </p>
+			</div>
+			<form action="/reset" method="post">
+				<input type="submit" value="Reset Score">
+			</form>
+		</div>
+		<div class="option-box">
+			<h3>Farm</h3>
+			<p>(earns 10-20 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="farm" />
+				<input type="submit" value="Find Gold!"/>
+			</form>
+		</div>
+		<div class="option-box">
+			<h3>Cave</h3>
+			<p>(earns 5-10 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="cave" />
+				<input type="submit" value="Find Gold!"/>
+			</form>
+		</div>
+		<div class="option-box">
+			<h3>House</h3>
+			<p>(earns 2-5 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="house" />
+				<input type="submit" value="Find Gold!"/>
+			</form>
+		</div>
+		<div class="option-box">
+			<h3>Casino</h3>
+			<p>(earns/takes 0-50 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="casino" />
+				<input type="submit" value="Find Gold!"/>
+			</form>
+		</div>
+		<p>Activities:</p>
+		<div class="log">
+			{% if session['building']|length > 0 %}
+				{% for num in range(0, session['building']|length) %}
+					{% if session['building'][num] == 'casino' %}
+						{% if session['amt'][num] < 0 %}
+							<p class='loss'>Entered a casino and lost {{ session['amt'][num] }} golds... Ouch.. {{ session['time'][num] }}</p>
+						{% elif session['amt'][num] >= 0%}
+							<p class='gain'>Entered a casino and won {{ session['amt'][num] }} golds! Nice! {{ session['time'][num] }}</p>
+						{% endif %}
+					{% else %}
+						<p class='gain'>Earned {{ session['amt'][num] }} golds from the {{ session['building'][num] }} {{ session['time'][num] }}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</div>
+		</div>
+	</body>
+</html>

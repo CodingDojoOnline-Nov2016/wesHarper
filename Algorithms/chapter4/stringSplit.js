@@ -29,4 +29,4 @@ function split(string, separator, limit) {
 
 
 var myString = "This is a string yo!";
-console.log(split(myString));
+console.log(split(myString, "|"));
