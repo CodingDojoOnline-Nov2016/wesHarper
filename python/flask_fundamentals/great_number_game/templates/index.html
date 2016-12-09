@@ -9,29 +9,29 @@
 		<h1>Welcome to the Great Number Game!</h1>
 		<p>I am thinking of a number between 1 and 100</p>
 		<p>Take a guess!</p>
-		{% if session['result'] == KeyError or session['result'] < 2 %}
-		{% if session['result'] == 0 %}
-		<div class="incorrect">
-			<p>Too Low!</p>
-		</div>
-		{% endif %}
-		{%if session['result'] == 1 %}
-		<div class="incorrect">
-			<p>Too High!</p>
-		</div>
-		{% endif %}
-		<form method="post" action="/guessed" name="guess-form">
-			<input type="number" name="number">
-			<input type="submit" name="submit-guess">
-		</form>
+		{% if not session['result'] or session['result'] < 2 %}
+			{% if session['result'] == 0 %}
+				<div id="results-container" class="incorrect">
+					<p>Too Low!</p>
+				</div>
+			{% endif %}
+			{%if session['result'] == 1 %}
+				<div id="results-container" class="incorrect">
+					<p>Too High!</p>
+				</div>
+			{% endif %}
+			<form method="post" action="/guessed" name="guess-form">
+				<input type="number" name="number">
+				<input type="submit" name="submit-guess">
+			</form>
 		{% endif %}
 		{% if session['result'] == 2 %}
-		<div class="correct">
-			<p>Nice Work!</p>
-		</div>
-		<form method="post" action="/new-game" name="new-game-form">
-			<input type="submit" name="submit-new-game" value="Play Again!">
-		</form>
+			<div id="results-container" class="correct">
+				<p>{{ session['current_num'] }} was the number! Nice!</p>
+				<form method="post" action="/new-game" name="new-game-form">
+					<input type="submit" name="submit-new-game" value="Play Again!">
+				</form>
+			</div>
 		{% endif %}
 	</body>
 </html>

@@ -1,3 +1,18 @@
 * {
 	text-align: center;
 }
+
+#results-container {
+	display: inline-block;
+	padding: 30px 20px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}	
+
+	.incorrect {
+		background-color: red;
+	}
+
+	.correct {
+		background-color: lightgreen;
+	}

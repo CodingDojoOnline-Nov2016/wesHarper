@@ -29,14 +29,13 @@ def guessed():
 		result = 2
 	session['result'] = result
 
+	print session['result'], session['guess'], session['current_num'], "<------------------------------------"
+
 	return redirect('/')
 
 @app.route('/new-game', methods=['POST'])
 def new_game():
-	print session['result'], session['guess'], session['current_num']
-	session.pop('result')
-	session.pop('guess')
-	session.pop('current_num')
+	session.clear()
 	return redirect('/')
 
 app.run(debug=True)
