@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{ message }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+		<form name="user-info" method="post" action="/result">
+			<label>Your Name:</label>
+			<input type="text" name="name" placeholder="Vanilla Ice">
+			<label>Dojo Location:</label>
+			<select name="dojo-location">
+				<option value="san-jose">San Jose</option>
+				<option value="seattle">Seattle</option>
+				<option value="dallas">Dallas</option>
+			</select>
+			<label>Favorite Language:</label>
+			<select name="favorite-language">
+				<option value="html">HTML</option>
+				<option value="javascript">JavaScript</option>
+				<option value="python">Python</option>
+				<option value="c++">C++</option>
+				<option value="php">PHP</option>
+				<option value="swift">Swift</option>
+			</select>
+			<label>Comment (optional):</label>
+			<textarea rows= 10 cols= 100 name="comments"></textarea>
+			<input type="submit" name="submit">
+		</form>
+	</body>
+</html>
