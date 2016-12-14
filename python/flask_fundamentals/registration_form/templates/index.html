@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	{% with errors = get_flashed_messages(category_filter=['error']) %}
+		{% if errors %}
+			<ul>
+			{% for msg in errors %}
+				<li>{{ msg }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	{% with congrats = get_flashed_messages(category_filter=['congrats']) %}
+		{% if congrats %}
+			{% for msg in congrats %}
+				<h3>{{ msg }}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+		<form action='/process' method='post' name='registration-form'>
+			<label>Email: </label>
+			<input type="text" name="email" placeholder="robert@vanillaice.com">
+			<label>First Name: </label>
+			<input type="text" name="first-name" placeholder="Vanilla">
+			<label>Last Name: </label>
+			<input type="text" name="last-name" placeholder="Ice">
+			<label>Birthday: </label>
+			<input type="text" name="birthdate" placeholder="MM/DD/YYYY">
+			<label>Password: </label>
+			<input type="text" name="password" placeholder="1c31c3B4by">
+			<label>Confirm Password: </label>
+			<input type="text" name="confirm" placeholder="1c31c3B4by">
+			<input type="submit" name="sumbit">
+		</form>
+	</body>
+</html>
