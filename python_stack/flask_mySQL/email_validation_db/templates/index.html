@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	{% with errors = get_flashed_messages(category_filter=['errors']) %}
+		{% if errors %}
+			{% for msg in errors %}
+				<p class='error'>{{ msg }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+		<form method='post' action='/add_email' name='email_submit'>
+			<label>Email Address:</label>
+			<input type="text" name="email">
+			<input type="submit" name="submit">
+		</form>
+	</body>
+</html>

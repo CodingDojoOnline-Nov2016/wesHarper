@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>Hi we made it</h1>
+		{% for r in result %}
+			<a href="/hero/{{ r.id }}">Go to individual hero page</a>
+			<p>{{ r.first_name }} {{ r.last_name }} {{ r.hero_name }}</p>
+		{% endfor %}
+		<form action='/create' method='post' name='create-hero'>
+			<label>First Name:</label>
+			<input type="text" name="first-name">
+			<label>Last Name:</label>
+			<input type="text" name="last-name">
+			<label>Hero Name:</label>
+			<input type="text" name="hero-name">
+			<input type="submit" name="submit-create-hero">
+		</form>
+	</body>
+</html>

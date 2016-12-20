@@ -1,0 +1,59 @@
+def __init__(self, app, db):
+        config = {
+                'host': 'poo',
+                'database': db, # we got db as an argument
+                'user': 'root',
+                'password': 'root',
+                'port': '8889' # change the port to match the port your SQL server is running on
+        }
+Error: None. Strange...
+Reason: Not sure yet.
+Solution: The hostname should be localhost if it's going to be accessed through localhost:5000, but obviously for some reason that doesn't matter, so I need to do more digging into this unexpected non-issue.
+
+def __init__(self, app, db):
+        config = {
+                'host': 'localhost',
+                'database': mydb, # we got db as an argument
+                'user': 'root',
+                'password': 'root',
+                'port': '8889' # change the port to match the port your SQL server is running on
+        }
+Error: 'global name mydb is not defined'. 
+Reason: db is being passed as an argument to the function on line 11, changing 'db' to 'mydb' breaks because mydb is never declared anywhere else, therefore, it is not defined.
+Solution: change mydb back to db, since it's a variable, don't use quotes.
+
+def __init__(self, app, db):
+        config = {
+                'host': 'local',
+                'database': db, # we got db as an argument
+                'user': 'fun',
+                'password': 'root',
+                'port': '8889' # change the port to match the port your SQL server is running on
+        }
+Error: (1045, "Access denied for user 'fun'@'localhost' (using password: YES)")
+Reason: In this specific case, there is no user named 'fun', so it will not have permission to access the database.
+Solution: Change the username to an existing user, generally 'root'.
+
+def __init__(self, app, db):
+        config = {
+                'host': 'local',
+                'database': db, # we got db as an argument
+                'user': 'root',
+                'password': 'fun',
+                'port': '8889' # change the port to match the port your SQL server is running on
+        }
+Error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Reason: The password for the 'root' user on my machine is not 'fun'.
+Solution: Change the password to the correct password for the current user.
+
+def __init__(self, app, db):
+        config = {
+                'host': 'local',
+                'database': db, # we got db as an argument
+                'user': 'root',
+                'password': 'root',
+                'port': '8880' # change the port to match the port your SQL server is running on
+        }
+Error: (2003, "Can't connect to MySQL server on '127.0.0.1' (61)")
+Reason: The port does not match the port the mySQL server is running on.
+Solution: Change the port to match the port the SQL server is running on. In this case, '8889'

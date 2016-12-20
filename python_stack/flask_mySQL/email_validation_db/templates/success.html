@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	{% with success = get_flashed_messages(category_filter=['success']) %}
+		{% if success %}
+			{% for msg in success %}
+				<p class='success'>{{ msg }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	{% for email in emails: %}
+		<p>Email: {{ email['email'] }}, created {{ email['created_at'] }}</p>
+	{% endfor %}
+	<a href="/">Go Back</a>
+	</body>
+</html>
