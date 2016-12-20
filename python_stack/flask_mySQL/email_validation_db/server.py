@@ -15,7 +15,7 @@ def index():
 
 @app.route('/success')
 def success():
-	flash('nice', 'success')
+	flash("Successfully added email", 'success')
 	query = "SELECT * FROM emails"
 	emails = mysql.query_db(query)
 	return render_template('success.html', title="Email List", emails=emails)
@@ -34,4 +34,10 @@ def add_email():
 		mysql.query_db(query, data)
 		return redirect('/success')
 
+@app.route('/delete/<id>')
+def delete_email(id):
+	query = "DELETE FROM emails WHERE id = :id"
+	data = {'id': id,}
+	print mysql.query_db(query,data)
+	return redirect('/success')
 app.run(debug=True)
