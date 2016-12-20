@@ -1,28 +1,19 @@
-function Node(data) {
-	var _data = data; //hides data because var _data is locally scoped, it only exists inside the function
-	var _next = null;
-	this.getData = function() {
-		return _data;
-	}
-	this.setNext = function(next) {
-		_next = next;
-		return this;
-	}
-	this.getNext = function() {
-		return _next;
-	}
-}
+var Node = require('./stackNode.js').Node
 
-
-function Stack() {
+module.exports.Stack = function() {
 	var _head = null;
 	this.push = function(data) {
+		// console.log('pushing');
+		// console.log(data instanceof Node);
 		if (!(data instanceof Node)) {
+			// console.log("inside if")
 			var n = new Node(data);
 			n.setNext(_head);
 			_head = n;
 			return this;
 		} else {
+			// console.log('inside else');
+			// console.log(data.getData());
 			data.setNext(_head);
 			_head = data;
 			return this;
@@ -60,8 +51,8 @@ function Stack() {
 }
 
 
-var s = new Stack();
+// var s = new Stack();
 
-s.push('a').push('b').push('c').show()
-console.log(s.pop())
-s.show()
+// s.push('a').push('b').push('c').show()
+// console.log(s.pop())
+// s.show()
