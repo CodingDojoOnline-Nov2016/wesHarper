@@ -9,6 +9,13 @@
 	</head>
 	<body>
 	<h2>Add a new friend</h2>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<h4 class='error'>{{ message }}</h4>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
 	<form method='post' name='add-friend' action='/friends'>
 		<label>First Name:</label>
 		<input type="text" name="first-name" placeholder="Vanilla">
@@ -24,6 +31,7 @@
 			<p>{{ friend.first_name }}</p>
 			<p>{{ friend.last_name }}</p>
 			<p>{{ friend.email }}</p>
+			<a class='button' href='/friends/{{ friend.id }}/edit'>Edit Friend</a>
 		</div>
 	{% endfor %}
 	</body>

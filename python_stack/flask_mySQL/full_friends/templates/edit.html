@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	<h2>Add a new friend</h2>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<h4 class='error'>{{ message }}</h4>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	{% for item in friend %}
+		<form method='post' name='edit-friend' action='/friends/{{ item.id }}'>
+			<label>First Name:</label>
+			<input type="text" name="first-name" placeholder="Vanilla" value="{{ item.first_name }}">
+			<label>Last Name:</label>
+			<input type="text" name="last-name" placeholder="Ice" value="{{ item.last_name }}">
+			<label>Email:</label>
+			<input type="text" name="email" placeholder="robertvanwinkle@vanillaice.com" value="{{ item.email }}">
+			<input class="button button-primary" type="submit" name="submit-edit-friend">
+			<a class='button' href='/'>Cancel</a>
+		</form>
+		<form action='/friends/{{ item.id }}/delete' method='post' name='delete-friend'>
+			<input class="button" type="submit" name="submit-delete-friend" value='Delete Friend'>
+		</form>
+	{% endfor %}
+	</body>
+</html>
