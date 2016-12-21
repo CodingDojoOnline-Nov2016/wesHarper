@@ -1,5 +1,5 @@
 .friend {
-	display: inline-block;
+	display: block;
 	width: 20%;
 }
 
@@ -7,3 +7,19 @@
 	display: inline-block;
 	width: 30%;
 }
+
+form {
+	width: 40%;
+}
+
+	form input, label {
+		display: inline-block;
+	}
+
+		form label {
+			width: 39%;
+		}
+
+		form input {
+			width: 60%;
+		}

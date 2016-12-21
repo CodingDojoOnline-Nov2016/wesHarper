@@ -8,7 +8,17 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 	<body>
-	<h1>These are all my friends!</h1>
+	<h2>Add a new friend</h2>
+	<form method='post' name='add-friend' action='/friends'>
+		<label>First Name:</label>
+		<input type="text" name="first-name" placeholder="Vanilla">
+		<label>Last Name:</label>
+		<input type="text" name="last-name" placeholder="Ice">
+		<label>Email:</label>
+		<input type="text" name="email" placeholder="robertvanwinkle@vanillaice.com">
+		<input class="button button-primary" type="submit" name="submit-add-friend">
+	</form>
+	<h2>These are all my friends!</h2>
 	{% for friend in friends %}
 		<div class='friend'>
 			<p>{{ friend.first_name }}</p>
