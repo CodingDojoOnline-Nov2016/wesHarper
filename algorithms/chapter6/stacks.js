@@ -27,7 +27,7 @@ module.exports.Stack = function() {
 			return temp.getData();
 		}
 	}
-	this.top = function() { //remove and add to front of list
+	this.top = function() { 
 		if(_head) {
 			return _head.getData();
 		}

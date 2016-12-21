@@ -1,0 +1,9 @@
+.friend {
+	display: inline-block;
+	width: 20%;
+}
+
+.friend p {
+	display: inline-block;
+	width: 30%;
+}
