@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{ message }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+		<form method='post' action='/students' name='add-user'>
+			<label for='first-name'>First Name:</label>
+			<input type="text" name="first-name" placeholder="Vanilla">
+			<label for='last-name'>Last Name:</label>
+			<input type="text" name="last-name" placeholder="Ice">
+			<label for='birth-date'>Birth Date:</label>
+			<input type="date" name="birth-date">
+			<label for='graduation-date'>Graduation Date:</label>
+			<input type="date" name="graduation-date">
+			<label for='password'>Password:</label>
+			<input type="text" name="password">
+			<label for='confirm'>Confirm Password:</label>
+			<input type="text" name="confirm">
+			<input type="submit" name="submit-add-user">
+		</form>
+		{% for student in students %}
+			<div class='student'>
+				<p>{{ student.first_name }}</p>
+				<p>{{ student.last_name }}</p>
+				<p>{{ student.birth_date }}</p>
+				<p>{{ student.graduation_date }}</p>
+				<p>{{ student.password }}</p>
+			</div>
+		{% endfor %}
+	</body>
+</html>
