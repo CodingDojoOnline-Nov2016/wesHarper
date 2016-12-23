@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<h1>Please register for a new account</h1>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<h4 class="error">{{ message }}</h4>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<div id="registration-module">
+			<form name="register" action="/users" method="post">
+				<label>First Name:</label>
+				<input type="text" name="first-name" placeholder="Vanilla">
+				<label>Last Name:</label>
+				<input type="text" name="last-name" placeholder="Ice">
+				<label>Email:</label>
+				<input type="text" name="email" placeholder="robert@vanillaice.com">
+				<label>Password:</label>
+				<input type="password" name="password" placeholder="password">
+				<label>Confirm Password:</label>
+				<input type="password" name="confirm" placeholder="confirm password">
+				<input type="submit" name="submit-register" value="Sign Up">
+			</form>
+		</div>
+		<a class="button" href="/">Cancel</a>
+	</body>
+</html>

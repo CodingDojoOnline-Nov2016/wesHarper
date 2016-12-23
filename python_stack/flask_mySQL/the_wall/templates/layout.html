@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div class='header'>
+			<h1>The Wall</h1>
+			{% if not session['logged_in'] and not session['user_id'] %}
+				<div id='login-module'>
+					<form name='login' action='/login' method='post'>
+						<input type="text" name="email" placeholder="robert@vanillaice.com">
+						<input type="password" name="password" placeholder="password">
+						<input type="submit" name="submit-login" value="Log In">
+					</form>
+				</div>
+				<a class="button" id='register-button' href="/register">Sign Up</a>
+			{% elif not session['logged_in'] %}
+				<p>Sign in as {{ user[0]['first_name'] }}?</p>
+				<div id='login-module'>
+					<form name='login' action='/login' method='post'>
+						<input type="text" name="email" value="{{ user[0]['email'] }}">
+						<input type="password" name="password" placeholder="password">
+						<input type="submit" name="submit-login" value="Log In">
+					</form>
+				</div>
+				<a class="button" id='register-button' href="/register">Sign Up</a>
+			{% else %}
+				<div id='login-module'>
+					<p id='welcome'>Welcome {{ user[0]['first_name'] }} {{ user[0]['last_name'] }}</p>
+					<a class="button" id='logout-button' href='/logout'>Log Out</a>
+				</div>
+			{% endif %}
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<p class="error">{{ message }}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</div>
+		<div id='new-message'>
+			<h4>Create a new message</h4>
+			<form name="new-message" action="/messages" method="post">
+				<textarea name='message' placeholder="New message" maxlength="5000"></textarea>
+				<input type="submit" name="sumit-message" value="Post Message">
+			</form>
+		</div>
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>
