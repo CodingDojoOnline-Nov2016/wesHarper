@@ -8,39 +8,39 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 	<body>
-	<h1>Register or login</h1>
-	{% with messages = get_flashed_messages() %}
-		{% if messages %}
-			{% for message in messages %}
-				<h4 class="red">{{ message }}</h4>
-			{% endfor %}
-		{% endif %}
-	{% endwith %}
-	<div class="index-form" id="registration">
-		<h2>Register</h2>
-		<form name="registration" action="/users" method="post">
-			<label>First Name:</label>
-			<input type="text" name="first-name" placeholder="Vanilla">
-			<label>Last Name:</label>
-			<input type="text" name="last-name" placeholder="Ice">
+		<h1>Register or login</h1>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<h4 class="red">{{ message }}</h4>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<div class="index-form" id="registration">
+			<h2>Register</h2>
+			<form name="registration" action="/users" method="post">
+				<label>First Name:</label>
+				<input type="text" name="first-name" placeholder="Vanilla">
+				<label>Last Name:</label>
+				<input type="text" name="last-name" placeholder="Ice">
+				<label>Email:</label>
+				<input type="text" name="email" placeholder="robert@vanillaice.com">
+				<label>Password:</label>
+				<input type="text" name="password">
+				<label>Confirm Password:</label>
+				<input type="text" name="confirm">
+				<input type="submit" name="submit-registration" value="Sign Up">
+			</form>
+		</div>
+		<div class="index-form" id="login">
+			<h2>Login</h2>
+			<form name="login" action="/login" method="post">
 			<label>Email:</label>
-			<input type="text" name="email" placeholder="robert@vanillaice.com">
+			<input type="text" name="email" placeholder="email">
 			<label>Password:</label>
 			<input type="text" name="password">
-			<label>Confirm Password:</label>
-			<input type="text" name="confirm">
-			<input type="submit" name="submit-registration" value="Sign Up">
-		</form>
-	</div>
-	<div class="index-form" id="login">
-		<h2>Login</h2>
-		<form name="login" action="/login" method="post">
-		<label>Email:</label>
-		<input type="text" name="email" placeholder="email">
-		<label>Password:</label>
-		<input type="text" name="password">
-		<input type="submit" name="submit-login" value="Login">
-		</form>
-	</div>
+			<input type="submit" name="submit-login" value="Login">
+			</form>
+		</div>
 	</body>
 </html>
