@@ -54,6 +54,10 @@
 		width: 80%;
 	}
 
+	.message-box h5, h6, .delete-form {
+		display: inline-block;
+	}
+
 /*register.html*/
 #registration-module {
 	display: inline-block;

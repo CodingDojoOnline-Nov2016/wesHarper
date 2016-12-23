@@ -4,7 +4,14 @@
 		{% for message in messages %}
 			<div class="message-box">
 				<h5>{{ message['creator_first_name'] }} {{ message['creator_last_name'] }} {{ message['message_date'] }}</h5>
-				<p class="message">{{ message['message'] }}
+				{% if session['user_id'] == message['user_id']%}
+					<div class="delete-form">
+						<form name="delete-message" action="/messages/{{ message['message_id'] }}/delete" method="post">
+							<input type="submit" name="submit-delete-message" value="Delete Post">
+						</form>
+					</div>
+				{% endif %}
+				<p class="message">{{ message['message'] }}</p>
 				<p>Comments:</p>
 				<div class="comment-box">
 					{% if comments %}
@@ -12,6 +19,13 @@
 							{% if comment['message_id'] == message['message_id']%}
 								<div class="comment">
 									<h6>{{ comment['creator_first_name'] }} {{ comment['creator_last_name']}} {{ comment['comment_date'] }}</h6>
+									{% if session['user_id'] == comment['user_id']%}
+										<div class="delete-form">
+											<form name="delete-comment" action="/comments/{{ comment['comment_id'] }}/delete" method="post">
+												<input type="submit" name="submit-delete-comment" value="Delete Comment">
+											</form>
+										</div>
+									{% endif %}
 									<p>{{ comment['comment'] }}</p>
 								</div>
 							{% endif %}

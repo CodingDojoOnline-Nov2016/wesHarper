@@ -18,6 +18,7 @@ def index():
 		messages.message AS message, 
 		messages.created_at AS message_date,
 		messages.id AS message_id,
+		users.id AS user_id,
 		users.first_name AS creator_first_name,
 		users.last_name AS creator_last_name FROM messages
 			JOIN users ON messages.users_id = users.id
@@ -29,6 +30,7 @@ def index():
 		comments.comment AS comment,
 		comments.created_at AS comment_date,
 		messages.id AS message_id,
+		users.id AS user_id,
 		users.first_name AS creator_first_name,
 		users.last_name AS creator_last_name FROM comments
 			JOIN users ON comments.users_id = users.id
@@ -157,8 +159,8 @@ def create_message():
 		errors.append('must be logged in to create messages')
 
 	#run length validation
-	if len(message) < 15:
-		errors.append("message must be longer than 15 characters")
+	if len(message) < 1:
+		errors.append("message must not be empty")
 
 	#check for errors
 	if errors:
@@ -207,6 +209,28 @@ def create_comment():
 			'messages_id': messages_id,
 		}
 		mysql.query_db(query, data)
+	return redirect('/')
+
+@app.route('/messages/<id>/delete', methods=['POST'])
+def destroy_message(id):
+	message_data = { 'id': id }
+
+	#delete corresponding comments
+	comments_query = "DELETE FROM comments WHERE messages_id = :id"
+	mysql.query_db(comments_query, message_data)
+
+	#delete message
+	message_query = "DELETE FROM messages WHERE id = :id"
+	mysql.query_db(message_query, message_data)
+
+	return redirect('/')
+
+@app.route('/comments/<id>/delete', methods=['POST'])
+def destroy_comment(id):
+	#delete comment
+	query = "DELETE FROM comments WHERE id = :id"
+	data = { 'id': id }
+	mysql.query_db(query, data)
 	return redirect('/')
 
 app.run(debug=True)
