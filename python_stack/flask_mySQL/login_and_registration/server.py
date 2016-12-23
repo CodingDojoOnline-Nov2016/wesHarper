@@ -13,6 +13,15 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 def index():
 	return render_template('index.html', title="Login and Registration")
 
+@app.route('/success/<id>/profile')
+def success(id):
+	query = """SELECT first_name, last_name FROM users
+		WHERE id = :id"""
+	data = { 'id': id }
+	user = mysql.query_db(query, data)
+	print user
+	return render_template('success.html', title="Success!", user=user)
+
 @app.route('/users', methods=['POST'])
 def create():
 	first = request.form['first-name']
@@ -46,17 +55,36 @@ def create():
 		return redirect('/')
 	else:
 		pw_hash = bcrypt.generate_password_hash(password)
-		query = '''INSERT INTO users(first_name, last_name, email, pw_hash, created_at, updated_at)
+		insert_query = '''INSERT INTO users(first_name, last_name, email, pw_hash, created_at, updated_at)
 			VALUES (:first_name, :last_name, :email, :pw_hash, NOW(), NOW())'''
-		data = {
+		insert_data = {
 			'first_name': first,
 			'last_name': last,
 			'email': email,
 			'pw_hash': pw_hash,
 		}
-		mysql.query_db(query, data)
-		flash("Congrats buddy")
-		return render_template('success.html', title="Success")
+		mysql.query_db(insert_query, insert_data)
+		user_query = "SELECT id FROM users WHERE email = :email LIMIT 1"
+		user_data = { 'email': email }
+		user = mysql.query_db(user_query, user_data)
+		flash("successful registration")
+		session['user_id'] = user[0]['id']
+		return redirect('/success/'+str(session['user_id'])+'/profile')
 
+@app.route('/login', methods=['POST'])
+def login():
+	email = request.form['email']
+	password = request.form['password']
+	if email and password:
+		user_query = "SELECT id, email, pw_hash FROM users WHERE email = :email LIMIT 1"
+		query_data = { 'email': email }
+		user = mysql.query_db(user_query, query_data)
+		if bcrypt.check_password_hash(user[0]['pw_hash'], password):
+			session['user_id'] = user[0]['id']
+			flash('successful login')
+			return redirect('/success/'+str(session['user_id'])+'/profile')
+	else:
+		flash('unsuccessful login')
+		return redirect('/')
 
 app.run(debug=True)

@@ -2,3 +2,15 @@
 	display: inline-block;
 	width: 19%;
 }
+
+.error {
+	color: red;
+}
+
+form {
+	width: 50%;
+}
+
+	label {
+		display: inline-block;
+	}

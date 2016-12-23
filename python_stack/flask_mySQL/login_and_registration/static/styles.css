@@ -5,3 +5,9 @@
 .green {
 	color: green;
 }
+
+.index-form {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+}
