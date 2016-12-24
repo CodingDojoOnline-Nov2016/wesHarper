@@ -39,9 +39,7 @@ def index():
 	comments = mysql.query_db(comment_query)
 
 	#check if user is logged in and pull info
-	if not session['logged_in'] and not session['user_id']:
-		return render_template('index.html', title="The Wall", messages=messages, comments=comments)
-	elif not session['logged_in']:#there are cases in which user will be logged out but user_id still extists in session
+	if not session['user_id']:#there are cases in which user will be logged out but user_id still extists in session
 		user_query = "SELECT first_name, last_name, email FROM users WHERE id = :id"
 		user_data = { 'id': session['user_id'] }
 		user = mysql.query_db(user_query, user_data)
@@ -120,7 +118,6 @@ def create_user():
 
 		#set user_id to queried id and prep for dynamic content and login
 		session['user_id'] = user[0]['id']
-		session['logged_in'] = True
 	return redirect('/')
 
 @app.route('/login', methods=['POST'])#log user in
@@ -132,21 +129,21 @@ def login():
 	#run login query
 	query = "SELECT id, pw_hash FROM users WHERE email = :email"
 	data = { 'email': email }
-	user = mysql.query_db(query, data)
-
-	#check password
-	if bcrypt.check_password_hash(user[0]['pw_hash'], password):
-		session['logged_in'] = True
-		session['user_id'] = user[0]['id']
-	else:
-		flash("incorrect username or password")
+	
+	try:
+		user = mysql.query_db(query, data)
+		#check password
+		if bcrypt.check_password_hash(user[0]['pw_hash'], password):
+			session['user_id'] = user[0]['id']
+		else:
+			flash("incorrect username or password")
+	except:
+		flash("no user exists with that email address")
 	return redirect('/')
 
 @app.route('/logout')#log user out
 def logout():
-	session['logged_in'] = False
-	print "*"* 50
-	print session['logged_in']
+	session['user_id'] = None
 	return redirect('/')
 
 @app.route('/messages', methods=['POST'])#create a new message
@@ -155,7 +152,7 @@ def create_message():
 	message = request.form['message']
 	errors = []
 	#check if user is logged in before allowing post into db
-	if not session['logged_in']:
+	if not session['user_id']:
 		errors.append('must be logged in to create messages')
 
 	#run length validation
@@ -185,7 +182,7 @@ def create_comment():
 	#create error handler
 	errors = []
 	#check if user is logged in before allowing to add comment
-	if not session['logged_in']:
+	if not session['user_id']:
 		errors.append('must be logged in to comment')
 
 	#run length validation

@@ -10,16 +10,7 @@
 	<body>
 		<div class='header'>
 			<h1>The Wall</h1>
-			{% if not session['logged_in'] and not session['user_id'] %}
-				<div id='login-module'>
-					<form name='login' action='/login' method='post'>
-						<input type="text" name="email" placeholder="robert@vanillaice.com">
-						<input type="password" name="password" placeholder="password">
-						<input type="submit" name="submit-login" value="Log In">
-					</form>
-				</div>
-				<a class="button" id='register-button' href="/register">Sign Up</a>
-			{% elif not session['logged_in'] %}
+			{% if not session['user_id'] %}
 				<p>Sign in as {{ user[0]['first_name'] }}?</p>
 				<div id='login-module'>
 					<form name='login' action='/login' method='post'>
