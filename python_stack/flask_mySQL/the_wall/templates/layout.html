@@ -11,10 +11,9 @@
 		<div class='header'>
 			<h1>The Wall</h1>
 			{% if not session['user_id'] %}
-				<p>Sign in as {{ user[0]['first_name'] }}?</p>
 				<div id='login-module'>
 					<form name='login' action='/login' method='post'>
-						<input type="text" name="email" value="{{ user[0]['email'] }}">
+						<input type="text" name="email" placeholder="email">
 						<input type="password" name="password" placeholder="password">
 						<input type="submit" name="submit-login" value="Log In">
 					</form>

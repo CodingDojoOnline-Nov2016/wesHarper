@@ -40,15 +40,13 @@ def index():
 
 	#check if user is logged in and pull info
 	if not session['user_id']:#there are cases in which user will be logged out but user_id still extists in session
-		user_query = "SELECT first_name, last_name, email FROM users WHERE id = :id"
-		user_data = { 'id': session['user_id'] }
-		user = mysql.query_db(user_query, user_data)
-		return render_template('index.html', title="The Wall", user=user, messages=messages, comments=comments)
+		return render_template('index.html', title="The Wall", messages=messages, comments=comments)
 	else:
 		user_query = "SELECT first_name, last_name FROM users WHERE id = :id"
 		user_data = { 'id': session['user_id'] }
 		user = mysql.query_db(user_query, user_data)		
 		return render_template('index.html', title=str(user[0]['first_name'])+" "+str(user[0]['last_name']), user=user, messages=messages, comments=comments)
+		#title should = title
 
 @app.route('/register') #Render registration page
 def register():
