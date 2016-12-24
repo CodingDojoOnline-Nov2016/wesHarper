@@ -3,7 +3,7 @@
 	{% if messages %}
 		{% for message in messages %}
 			<div class="message-box">
-				<h5>{{ message['creator_first_name'] }} {{ message['creator_last_name'] }} {{ message['message_date'] }}</h5>
+				<h5>{{ message['first_name'] }} {{ message['last_name'] }} {{ message['created_at'] }}</h5>
 				{% if session['user_id'] == message['user_id']%}
 					<div class="delete-form">
 						<form name="delete-message" action="/messages/{{ message['message_id'] }}/delete" method="post">
@@ -16,12 +16,12 @@
 				<div class="comment-box">
 					{% if comments %}
 						{% for comment in comments %}
-							{% if comment['message_id'] == message['message_id']%}
+							{% if comment['messages_id'] == message['message_id']%}
 								<div class="comment">
-									<h6>{{ comment['creator_first_name'] }} {{ comment['creator_last_name']}} {{ comment['comment_date'] }}</h6>
+									<h6>{{ comment['first_name'] }} {{ comment['last_name']}} {{ comment['created_at'] }}</h6>
 									{% if session['user_id'] == comment['user_id']%}
 										<div class="delete-form">
-											<form name="delete-comment" action="/comments/{{ comment['comment_id'] }}/delete" method="post">
+											<form name="delete-comment" action="/comments/{{ comment['id'] }}/delete" method="post">
 												<input type="submit" name="submit-delete-comment" value="Delete Comment">
 											</form>
 										</div>
@@ -32,7 +32,7 @@
 						{% endfor %}
 					{% endif %}
 					<form name="new-comment" action="/comments" method="post">
-						<input type="hidden" name="message-id" value="{{ message['message_id'] }}">
+						<input type="hidden" name="message-id" value="{{ message['id'] }}">
 						<textarea name="comment" placeholder="Leave a comment..." maxlength="2000"></textarea>
 						<input type="submit" name="sumbit-new-comment" value="Leave Comment">
 					</form>

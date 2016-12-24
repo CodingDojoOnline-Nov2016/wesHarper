@@ -14,25 +14,24 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 @app.route('/') #Render home page(wall)
 def index():
 	#query messages
-	message_query = """SELECT messages.id AS message_id,
-		messages.message AS message, 
-		messages.created_at AS message_date,
-		messages.id AS message_id,
+	message_query = """SELECT messages.id,
+		messages.message, 
+		messages.created_at,
 		users.id AS user_id,
-		users.first_name AS creator_first_name,
-		users.last_name AS creator_last_name FROM messages
+		users.first_name,
+		users.last_name FROM messages
 			JOIN users ON messages.users_id = users.id
 			ORDER BY messages.created_at DESC"""
 	messages = mysql.query_db(message_query)
 
 	#query comments
-	comment_query = """SELECT comments.id AS comment_id,
-		comments.comment AS comment,
-		comments.created_at AS comment_date,
+	comment_query = """SELECT comments.id,
+		comments.comment,
+		comments.created_at,
 		messages.id AS message_id,
 		users.id AS user_id,
-		users.first_name AS creator_first_name,
-		users.last_name AS creator_last_name FROM comments
+		users.first_name,
+		users.last_name FROM comments
 			JOIN users ON comments.users_id = users.id
 			JOIN messages ON comments.messages_id = messages.id
 			ORDER BY comments.created_at ASC"""
@@ -44,9 +43,9 @@ def index():
 	else:
 		user_query = "SELECT first_name, last_name FROM users WHERE id = :id"
 		user_data = { 'id': session['user_id'] }
-		user = mysql.query_db(user_query, user_data)		
-		return render_template('index.html', title=str(user[0]['first_name'])+" "+str(user[0]['last_name']), user=user, messages=messages, comments=comments)
-		#title should = title
+		user = mysql.query_db(user_query, user_data)
+		title = str(user[0]['first_name'])+" "+str(user[0]['last_name'])		
+		return render_template('index.html', title=title, user=user, messages=messages, comments=comments)
 
 @app.route('/register') #Render registration page
 def register():
@@ -99,8 +98,7 @@ def create_user():
 		pw_hash = bcrypt.generate_password_hash(password)
 
 		#run insert query
-		insert_query = """INSERT INTO users(first_name, last_name, email, pw_hash, created_at, updated_at)
-			VALUES (:first_name, :last_name, :email, :pw_hash, NOW(), NOW())"""
+		insert_query = """INSERT INTO users(first_name, last_name, email, pw_hash, created_at, updated_at) VALUES (:first_name, :last_name, :email, :pw_hash, NOW(), NOW())"""
 		insert_data = {
 			'first_name': first,
 			'last_name': last,
@@ -164,8 +162,7 @@ def create_message():
 		return redirect('/')
 	else:
 		#run insert query
-		query = """INSERT INTO messages(message, created_at, updated_at, users_id)
-			VALUES (:message, NOW(), NOW(), :users_id)"""
+		query = """INSERT INTO messages(message, created_at, updated_at, users_id) VALUES (:message, NOW(), NOW(), :users_id)"""
 		data = {
 			'message': message,
 			'users_id': session['user_id']
@@ -196,8 +193,7 @@ def create_comment():
 		return redirect('/')
 	else:
 		#run insert query
-		query = """INSERT INTO comments(comment, created_at, updated_at, users_id, messages_id)
-			VALUES (:comment, NOW(), NOW(), :users_id, :messages_id)"""
+		query = """INSERT INTO comments(comment, created_at, updated_at, users_id, messages_id) VALUES (:comment, NOW(), NOW(), :users_id, :messages_id)"""
 		data = {
 			'comment': comment,
 			'users_id': session['user_id'],
