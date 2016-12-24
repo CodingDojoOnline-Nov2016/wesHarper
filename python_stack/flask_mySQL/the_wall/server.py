@@ -38,7 +38,7 @@ def index():
 	comments = mysql.query_db(comment_query)
 
 	#check if user is logged in and pull info
-	if 'user_id' not in session:
+	if 'user_id' not in session or not session['user_id']:
 		return render_template('index.html', title="The Wall", messages=messages, comments=comments)
 	else:
 		user_query = "SELECT first_name, last_name FROM users WHERE id = :id"
