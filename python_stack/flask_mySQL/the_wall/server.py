@@ -148,7 +148,7 @@ def create_message():
 	message = request.form['message']
 	errors = []
 	#check if user is logged in before allowing post into db
-	if not session['user_id']:
+	if 'user_id' not in session or not session['user_id']:
 		errors.append('must be logged in to create messages')
 
 	#run length validation
@@ -177,7 +177,7 @@ def create_comment():
 	#create error handler
 	errors = []
 	#check if user is logged in before allowing to add comment
-	if not session['user_id']:
+	if 'user_id' not in session or not session['user_id']:
 		errors.append('must be logged in to comment')
 
 	#run length validation
