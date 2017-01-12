@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Django Demo</title>
+	</head>
+	<body>
+		<h1>Index HTML</h1>
+		{{ request.session.name }}
+		<form action="/new_user" method="post">
+			{% csrf_token %}
+			<input type="text" name="first_name">
+			<input type="submit" value="submit">
+		</form>
+	</body>
+</html>

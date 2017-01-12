@@ -4,33 +4,33 @@
 // but [9,9] --> -1.
 
 function balanceIndex(arr) {
-	if(arr.length < 3){ //check if array is too short
-		return -1;
+	var balanceIndex = 1;
+	var sumLeft = arr[0];
+	var sumRight = 0;
+	var len = arr.length;
+	
+	if(arr.length === 2 || !arr) {
+		balanceIndex = -1;
+	} else if(arr.length == 1) {
+		balanceIndex = 0;
 	}
 
-	var sumRight = arr[arr.length - 1]; //start with right-most value
-	var sumLeft = arr[arr.length - 3]; //start with 2nd to last index
-	var idx = arr.length - 2; //track current index
-
-	for(var i = 0; i < idx; i++) { //calculate sumLeft
-		sumLeft += arr[len - 1];
+	for(var i = 2; i < len; i++){
+		sumRight += arr[i];
 	}
 
-	while(idx){ //decrement index fulcrum and run conditional checks
-		//run conditional checks
-		if(sumLeft === sumRight) {
-			return idx;
+	len -= 1;
+
+	while(balanceIndex < len) {
+		if(sumLeft == sumRight) {
+			break;
+		} else {
+			sumLeft += arr[balanceIndex];
+			sumRight -= arr[balanceIndex];
+			balanceIndex++;
 		}
-		if(sumRight > sumLeft) {
-			return idx;
-		}
-		//decrement fulcrum
-		sumLeft -= arr[idx - 1];
-		sumRight += arr[idx];
-		//continue loop
-		idx--;
 	}
-	return -1;
+	return balanceIndex;// not working because balanceIndex++
 }
 
 var array1 = [-2,5,7,0,3] //2
