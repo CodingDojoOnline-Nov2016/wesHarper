@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Form!</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/styles.css' %}">
+</head>
+<body>
+	<form action="/process" method="post">
+		{% csrf_token %}
+		<label>Name:</label>
+		<input type="text" name="name">
+		<label>Location: </label>
+		<select name="location">
+			<option value="seattle">Seattle</option>
+			<option value="online">Online</option>
+			<option value="dallas">Dallas</option>
+		</select>
+		<label>Favorite Language:</label>
+		<select name="language">
+			<option value="javascript">JavaScript</option>
+			<option value="python">Python</option>
+			<option value="swift">Swift/iOS</option>
+		</select>
+		<label>Comment:</label>
+		<textarea rows="4" cols="50" name="comment"></textarea>
+		<input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ color }}</title>
+	{% load staticfiles %}
+</head>
+<body>
+	{% for key, value in images.items %}
+		{% if value.0 == True %}
+			<img src="{{ value.1 }}">
+		{% endif %}
+	{% endfor %}
+</body>
+</html>

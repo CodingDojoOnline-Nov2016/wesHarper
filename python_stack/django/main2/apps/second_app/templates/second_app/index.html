@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Second Django Demo!</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'second_app/css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'second_app/css/skeleton.css' %}">
+	<script src="{% static 'second_app/js/main.js' %}" type="text/javascript"></script>
+</head>
+<body>
+	<h1>Hello World</h1>
+	{{ email }} {{ name }}
+</body>
+</html>

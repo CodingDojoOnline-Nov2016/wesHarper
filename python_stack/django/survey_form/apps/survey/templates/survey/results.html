@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Result!</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/css/styles.css' %}">
+</head>
+<body>
+	<div id="success-box">
+		<p>Thanks for submitting this form! You have submitted this form {{ request.session.submissions }} times now.</p>
+	</div>
+	<div id="info-box">
+		<h3>Submitted Information</h3>
+		<p>Name: {{ request.session.name }}</p>
+		<p>Location: {{ request.session.location }}</p>
+		<p>Language: {{ request.session.language }}</p>
+		<p>Comment: {{ request.session.comment }}</p>
+		<a href="/" class="button">Go Back</a>
+	</div>
+</body>
+</html>
