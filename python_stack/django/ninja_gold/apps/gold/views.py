@@ -25,7 +25,6 @@ def process(request, location):
 
 		for key, value in locations.items():
 			if location == key:
-				print value[1]
 				request.session['gold_count'] += value[1]
 				if location == "casino":
 					locations['casino'][0] = "won" if locations['casino'][1] >= 0 else "lost"
@@ -36,16 +35,11 @@ def process(request, location):
 						exclam = "Ouch"
 						outcome = 0
 					casino_str = "Entered the casino and {} {} golds... {}... {}".format(locations['casino'][0], locations['casino'][1], exclam, datetime.datetime.now())
-					print casino_str
-					print locations['casino'][0]
 					request.session['activities'].insert(0, (outcome, casino_str))
 				else:
 					outcome = 1
 					string = "Earned {} golds from the {}! {}".format(value[1], location, datetime.datetime.now())
-					print string
 					request.session['activities'].insert(0, (outcome, string))
-					print request.session['activities']
-
 		return redirect('/')
 	else:
 		return redirect('/')
