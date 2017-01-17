@@ -4,5 +4,5 @@
 
 //doing a remove dup from a sorted array in n time may be a good intro to pointers
 function removeDuplicates(arr) {
-
+	
 }

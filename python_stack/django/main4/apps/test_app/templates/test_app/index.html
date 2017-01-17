@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django 4</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+	{% for blog in blogs %}
+		<h5>{{ blog.title }}</h5>
+		<p>{{ blog.blog }}</p>
+		{% for comment in blog.comment_set.all %}
+			{{ comment.comment }}
+		{% endfor %}
+		<form action="/comments/{{ blog.id }}" method="post">
+			{% csrf_token %}
+			<textarea name="comment" rows="8" cols="40"></textarea>
+			<input type="submit" value="Submit Comment">
+		</form>
+	{% endfor %}
+
+	<form action="/blogs" method="post">
+		{% csrf_token %}
+		<label for="title">Title:</label>
+		<input type="text" name="title">
+		<textarea name="blog" rows="8" cols="40"></textarea>
+		<input type="submit" value="Submit Blog Post">
+	</form>
+</body>
+</html>
