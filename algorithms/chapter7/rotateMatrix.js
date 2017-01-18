@@ -14,14 +14,16 @@ return [
 //lvl 2 == in place
 
 function rotateMatrix(matrix, numRotations = 1) {
+	numRotations = numRotations % 4;
 	var result=[];
-	for(var i = 0; i < matrix.length; i++) {
+	var height = matrix.length;
+	var width = matrix[0].length;
+
+	for(var i = 0; i < width; i++) {
 		result.push([]);
 	}
 
 	while(numRotations) {	
-		var height = matrix.length;
-		var width = matrix[0].length;
 		for(var row = height - 1; row >= 0; row--) {
 			for(var column = 0; column < width; column++) {
 				console.log("column: " + column + " row: " + row + " result[" + column + "][" + ((height - 1) - row) + "] = matrix[" + row + "][" + column + "]"+ "==" + matrix[row][column])
@@ -34,8 +36,11 @@ function rotateMatrix(matrix, numRotations = 1) {
 			matrix.push(result[i]);
 		}
 
+		height = matrix.length;
+		width = matrix[0].length;
+		
 		var result=[];
-		for(var i = 0; i < matrix.length; i++) {
+		for(var i = 0; i < width; i++) {
 			result.push([]);
 		}
 
@@ -48,7 +53,8 @@ function rotateMatrix(matrix, numRotations = 1) {
 array = [
 	[1,2,3],
 	[4,5,6],
-	[7,8,9]
+	[7,8,9],
+	[10,11,12]
 ]
 
-console.log(rotateMatrix(array, 4))
+console.log(rotateMatrix(array, 10))
