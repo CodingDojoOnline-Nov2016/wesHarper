@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/styles.css' %}">
+</head>
+<body>
+	{% if messages %}
+		{% for message in messages %}
+			<h5 class="error">{{ message }}</h5>
+		{% endfor %}
+	{% endif %}
+	<form method="post" action="/process">
+		{% csrf_token %}
+		<label>Email Address:</label>
+		<input type="text" name="email">
+		<input type="submit" name="submit-email">
+	</form>
+</body>
+</html>

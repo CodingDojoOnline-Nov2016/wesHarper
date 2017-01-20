@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'validator/styles.css' %}">
+</head>
+<body>
+	{% if messages %}
+		{% for message in messages %}
+			<h5 class="success">{{ message }}</h5>
+		{% endfor %}
+	{% endif %}
+	<ul>
+		{% for user in users %}
+			<li>{{ user.email }} {{ user.created_at }} <a class="button" href="user/{{ user.id }}/delete">Delete User</a></li> 
+		{% empty %}
+			<li>No users currently exist</li>
+		{% endfor %}
+	</ul>
+	<a href="/" class="button">Back</a>
+</body>
+</html>

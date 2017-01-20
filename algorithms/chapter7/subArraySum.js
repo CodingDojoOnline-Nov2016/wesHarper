@@ -16,7 +16,6 @@ function maxSubSum(arr) {
 			if(reset) {
 				start = reset;
 			}
-			reset = false;
 		}
 		if(currMax < 0) {
 			currMax = 0;
@@ -28,5 +27,5 @@ function maxSubSum(arr) {
 	return max;
 }
 
-var array1 = [1, 2, 3, -8, 1, 2, 4]
+var array1 = [1, 2, 3, -8, 1]
 console.log(maxSubSum(array1))
