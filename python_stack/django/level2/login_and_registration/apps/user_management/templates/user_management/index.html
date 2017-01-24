@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Registration</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/styles.css' %}">
+</head>
+<body>
+	<h1>Register</h1>
+	<form name="register" action="/users" method="post">
+		<label>First Name:</label>
+		<input type="text" name="first-name" placeholder="Vanilla">
+		<label>Last Name:</label>
+		<input type="text" name="last-name" placeholder="Ice">
+		<label>Email:</label>
+		<input type="text" name="email" placeholder="rvm@vanillaice.com">
+		<label>Passowrd:</label>
+		<input type="password" name="password">
+		<label>Confirm Password:</label>
+		<input type="password" name="confirm">
+		<input type="submit" value="Register">
+	</form>
+	<h2>Login</h2>
+	<form name="login" action="/login" method="post">
+		<label>Email:</label>
+		<input type="text" name="email">
+		<label>Password:</label>
+		<input type="password" name="password">
+		<input type="submit" value="Login">
+	</form>
+</body>
+</html>

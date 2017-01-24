@@ -19,6 +19,7 @@ def radix_sort(arr):
 		divisor *= 10
 		
 		if len(buckets[0]) == len(arr):
+			print arr
 			return arr
 
 		arr = []
@@ -52,4 +53,4 @@ def test_rig(n):
 	else:
 		print "sorts did not match"
 
-test_rig(1000111)
+test_rig(10000)
