@@ -1,0 +1,13 @@
+div {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}

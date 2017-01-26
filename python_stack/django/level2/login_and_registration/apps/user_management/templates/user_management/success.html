@@ -9,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'user_management/styles.css' %}">
 </head>
 <body>
-
+	<h1>You did it! You're in!</h1>
+	{% for message in messages %}
+		<h5 class="success">{{ message }}
+	{% endfor %}
+	<a href="/" class="button">Go Back</a>
 </body>
 </html>
