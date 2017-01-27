@@ -28,8 +28,7 @@ def show(req, user_id):
 			"user_info": res,
 		}
 	else:
-		for error in res:
-			messages.error(req, error)
+		messages.error(req, res)
 		return render(req, 'user_management/user_details.html')
 	return render(req, 'user_management/user_details.html', context)
 

@@ -11,7 +11,7 @@
 					<p><a href="{% url 'user_management:show' review.review_user.id %}">{{ review.review_user.alias }}</a> says: {{ review.review }}</p>
 					<p>Posted on: {{ review.created_at }}</p>
 					{% if request.session.user_id == review.review_user.id %}
-						<form id="delete" action="{% url 'book_review:destroy' review.id %}">
+						<form id="delete" action="{% url 'book_review:destroy' review.id %}" method='post'>
 							{% csrf_token %}
 							<input type="submit" value="Delete Review">
 						</form>

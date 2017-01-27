@@ -29,7 +29,10 @@ def create(req):
 def new(req):
 	if not req.session['user_id']:
 		return redirect(reverse('user_management:index'))
-	return render(req, 'book_review/new.html')
+	context = {
+		'authors': Book.objects.order_by('author')
+	}
+	return render(req, 'book_review/new.html', context)
 
 def show(req, book_id):
 	if req.method == 'POST':
@@ -61,7 +64,8 @@ def destroy(req, review_id):
 
 
 def books(req):
+	books = Book.objects.all().order_by('title')
 	context = {
-		"books": Book.objects.all().order_by("title")
+		"books": books,
 	}
-	return render(req, 'book_review/books.html')
+	return render(req, 'book_review/books.html', context)

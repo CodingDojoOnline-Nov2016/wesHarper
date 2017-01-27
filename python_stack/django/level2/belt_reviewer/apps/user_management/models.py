@@ -94,17 +94,23 @@ class UserManager(models.Manager):
 		return(False, errors)
 
 	def get_user_info(self, user_id):
+		from ..book_review.models import Book
 		user_id = int(user_id)
 		try:
 			user = self.get(id=user_id)
-
+			print "got user"
+			user_reviews = User.objects.filter(id=user_id).annotate(num=Count('user_review'))
+			print user_reviews[0].num
+			books = Book.objects.filter(book_review__review_user=user)
+			print books
+			# reviews = Review.objects.filter(review_user=user).annotate(num=Count('id'))
 			response = {
 				'alias': user.alias,
 				'first_name': user.first_name,
 				'last_name': user.last_name,
 				'email': user.email,
-				# 'total_reviews': self.filter(id=user_id).annotate(total_reviews=Count('user_review')),
-				# 'books': self.filter(id=user_id).filter(review_user__review_book)
+				'total_reviews': user_reviews[0].num,
+				'books': books,
 			}
 			return (True, response)
 		except:

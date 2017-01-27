@@ -13,8 +13,8 @@
 		<div id="authors">
 			<label class="subhead">Choose from the list: </label>
 			<select name="author-select" form="book-review-form">
-				{% for author in authors %}
-					<option value="{{ author }}">{{ author }}</option>
+				{% for book in authors %}
+					<option value="{{ book.author }}">{{ book.author }}</option>
 				{% empty %}
 					<option value="">N/A</option>
 				{% endfor %}
