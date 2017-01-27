@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ user.first_name }} {{ user.last_name }}</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_management/styles.css' %}">
+</head>
+<body>
+	<h1>You did it! You're in!</h1>
+	{% for message in messages %}
+		<h5 class="success">{{ message }}
+	{% endfor %}
+	<a href="/" class="button">Go Back</a>
+</body>
+</html>

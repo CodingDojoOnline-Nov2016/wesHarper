@@ -1,0 +1,45 @@
+#save-button {
+	display: inline-block;
+	width: 20rem;
+}
+
+.win {
+	color: green;
+}
+
+.loss {
+	color: red;
+}
+
+.location-box {
+	border: 1px solid black;
+	display: inline-block;
+	padding: 2%;
+	margin-left: 5%;
+}
+
+#activities {
+	margin-top: 5%;
+}
+
+	#activities-list {
+		border: 1px solid black;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+#counter {
+	padding: 1%;
+}
+
+	#counter h2{
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	#counter p {
+		border: 1px solid black;
+		display: inline-block;
+		vertical-align: top;
+		padding: 1%;
+	}

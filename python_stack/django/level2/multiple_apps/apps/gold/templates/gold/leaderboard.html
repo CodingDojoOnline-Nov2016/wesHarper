@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold!</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'gold/css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'gold/css/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'gold/css/styles.css' %}">
+</head>
+<body>
+{% for item in leaderboards %}
+	<li>User: {{ item.user.first_name }} {{ item.user.last_name }}, Top Score: {{ item.top_score }}, Games Played: {{ item.games_played }}, Lifetime Earnings: {{ item.total_gold_earned }}</li>
+{% empty %}
+<h2>Looks like no one has saved a game yet!</h2>
+{% endfor %}
+<a href="{% url 'gold:index' %}" class="button">Back to game</a>
+</body>
+</html>
