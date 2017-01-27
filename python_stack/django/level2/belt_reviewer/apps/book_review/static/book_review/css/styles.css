@@ -1,0 +1,36 @@
+#books, #recent-reviews, #book-reviews, #book-update {
+	display: inline-block;
+	vertical-align: top;
+}
+	
+	#recent-reviews, #book-reviews {
+		width: 60%;
+	}
+
+	#books, #book-update {
+		width: 35%;
+	}
+
+#authors {
+	margin-left: 10%;
+}
+	
+	.subhead {
+		font-weight: normal;
+	}
+
+.error {
+	color: red;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#delete {
+	display: inline-block;
+}
+
+#books ul {
+	border: 1px solid black;
+}
