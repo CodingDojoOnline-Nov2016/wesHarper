@@ -1,0 +1,13 @@
+#wrapper {
+	padding: 3%;
+}
+
+	.error {
+		color: red;
+	}
+
+	.form {
+		display: inline-block;
+		width: 40%;
+		vertical-align: top;
+	}

@@ -1,0 +1,26 @@
+{% extends './layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+<div id="wrapper">
+	<h1>Login or Register</h1>
+	{% for message in messages %}
+		<h5 class="error">{{ message }}
+	{% endfor %}
+	<div class="form" id="reg-form">
+		<h2>Register</h2>
+		<form action="{% url 'users:create' %}" method="post">
+			{% csrf_token %}
+			{{ reg_form }}
+			<input type="submit" value="Register">
+		</form>
+	</div>
+	<!-- <div class="form" id="log-form">
+		<h2>Login</h2>
+		<form action="{% url 'users:login' %}" method="post">
+			{% csrf_token %}
+			{{ log_form }}
+			<input type="submit" value="Login">
+		</form>
+	</div> -->
+</div>
+{% endblock %}
