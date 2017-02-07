@@ -3,7 +3,7 @@ function Node(data) {
 	this.next = null;
 }
 
-function Queue() {
+module.exports.Queue = function() {
 	this.head = null;
 	this.tail = null;
 	this.front = front;
@@ -65,6 +65,6 @@ function show() {
 	return this;
 }
 
-q = new Queue;
-q.enqueue('a').enqueue('b').show().dequeue();
-q.show();
+// q = new Queue;
+// q.enqueue('a').enqueue('b').show().dequeue();
+// q.show();
