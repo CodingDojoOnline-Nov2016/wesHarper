@@ -23,7 +23,7 @@ function BST() {
 			if(Math.abs(this.height(node.left) - this.height(node.right)) > 1) {
 				return false;
 			} else {
-				return(this.isBalanced(node.left) && this.isBalanced(node.right))
+				return(this.isBalanced(node.left) && this.isBalanced(node.right));
 			}
 		}
 		return true;
@@ -168,9 +168,79 @@ BST.prototype.BSTtoArray = function(node=this.root, arr=[]) {
 	return arr;
 };
 
+BST.prototype.isPerfect = function(node = this.root) {
+	// calculate the number of nodes at each level, determined by height
+	const levels = this.calcLevels(node);
+	console.log(levels);
+	// calculate the height of the tree
+	const height = this.height(node) - 1;
+	if(levels) {
+		for(var i = 1; i < levels.length - 1; i ++) {
+			if(levels[i] / 2 != levels[i + 1]) {
+			console.log(levels[i] / 2, "!==", levels[i + 1]);
+				return false;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+BST.prototype.calcLevels = function(node, levels=[null]) {
+	// console.log("height", this.height(node), "node", node.data);
+	// console.log(levels);
+	if(!node) {
+		return;
+	};
+	if(node.left && node.right) {
+		if(levels[this.height(node) - 1]) {
+			levels[this.height(node) - 1] += 2;
+		} else {
+			levels[this.height(node) - 1] = 2;
+		}
+		this.calcLevels(node.left, levels);
+		this.calcLevels(node.right, levels);
+	} else if(node.left || node.right) {
+		console.log("going to return false");
+		return false;
+	}
+	return levels;
+}
+
+BST.prototype.isPerfect2 = function(node = this.root) {
+	if(node) {
+		const left = this.height(node.left);
+		const right = this.height(node.right);
+		if(right !== left) {
+			return false;
+		} else {
+			return this.isPerfect2(node.left) && this.isPerfect2(node.right);
+		}
+	}
+	return true;
+}
+
+BST.prototype.isComplete = function(node = this.root) {
+	if(node) {
+		const left = this.height(node.left);
+		const right = this.height(node.right);
+		if(right > left || left - right > 1) {
+			return false;
+		} else {
+			return(this.isComplete(node.left) && this.isComplete(node.right));
+		}
+	}
+	return true;
+}
+
 var x = new BST()
-x.add(5).add(6).add(3).add(8).add(7).add(100).add(1).add(-1).add(-5).add(-7)
-var bal = new BST()
+x.add(10).add(5).add(12).add(3).add(7).add(13)
+console.log(x.isComplete());
+
+let perf = new BST()
+perf.add(10).add(5).add(15).add(3)
+console.log(perf.isPerfect2());
+// var bal = new BST()
 // bal.add(5).add(3).add(7)
 // x.min()
 // x.max()
@@ -179,7 +249,7 @@ var bal = new BST()
 // console.log(x.size());
 // console.log(x.height());
 // console.log(bal.isBalanced());
-var sorted = [0,1,2,3,4,5,6,7,8];
+// var sorted = [0,1,2,3,4,5,6,7,8];
 // console.log(bal.arrayToBST(sorted).isBalanced())
 // console.log(bal.isBalanced(), "arrayToBST")
-console.log(x.BSTtoArray())
+// console.log(x.BSTtoArray())
