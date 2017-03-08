@@ -221,25 +221,64 @@ BST.prototype.isPerfect2 = function(node = this.root) {
 }
 
 BST.prototype.isComplete = function(node = this.root) {
-	if(node) {
-		const left = this.height(node.left);
-		const right = this.height(node.right);
-		if(right > left || left - right > 1) {
-			return false;
-		} else {
-			return(this.isComplete(node.left) && this.isComplete(node.right));
+	// full lets us know whether the left side has an additional node
+	let full = true;
+	// that gives this context in the inner function
+	let that = this;
+	// total height will tell us what the lowest level of the tree is
+	// if we can figure out how to tell what the current height is, we could determine if curr node has children
+	// on the bottom-most level. If it does and full is false, we can return false
+	// totalHeight - 1 so we get height excluding root
+	const totalHeight = this.height() - 1;
+	console.log("totalHeight", totalHeight);
+	// breakLevel should be the level in which full was set to false
+	let breakLevel = 0;
+	// breakHeight should be the max height of the child node when full was set to false
+	let breakHeight = 0;
+	// inner function so we can keep track of globals
+	function recurse(node) {
+		if(node) {
+			const left = that.height(node.left);
+			const right = that.height(node.right);
+			console.log("node", node.data, "full", full);
+			console.log("left", left, "right", right);
+			if(right > left || left - right > 1 || (full === false && totalHeight - left === breakLevel && left === breakHeight)) {
+				console.log("breaking", left, right, full);
+				return false;
+			} else if(left > right) {
+				// if left is ever greater than false, we know it is no longer full
+				if(full) {
+					// totalHeight - left will give us the level of the current node, or the level of the node where full was set to false;
+					breakLevel = totalHeight - left;
+					// breakHeight can be used for a break case. If any other node on the same breakLevel has a height that meets the breakHeight AND full is false, we can break, because there are nodes on the bottom-most level that are unordered
+					breakHeight = left;
+					full = false;
+				}
+				// if left is greater than right AGAIN, we know it cannot be complete.
+				// This is a good idea, but doesn't work because further up the left sub tree it will break even though it is valid
+				// else {
+				// 	console.log("left is > than right and full == false");
+				// 	return false;
+				// }
+			} else {
+				const resultL = recurse(node.left);
+				const resultR = recurse(node.right);
+				return (resultL && resultR);
+			}
 		}
+		return true;
 	}
-	return true;
+	return recurse(node);
 }
 
-var x = new BST()
-x.add(10).add(5).add(12).add(3).add(7).add(13)
-console.log(x.isComplete());
+var comp = new BST()
+comp.add(10).add(5).add(15).add(3).add(7).add(13).add(17).add(1);
+console.log(comp.isComplete());
+// console.log(x.isComplete());
 
 let perf = new BST()
 perf.add(10).add(5).add(15).add(3)
-console.log(perf.isPerfect2());
+// console.log(perf.isPerfect2());
 // var bal = new BST()
 // bal.add(5).add(3).add(7)
 // x.min()
