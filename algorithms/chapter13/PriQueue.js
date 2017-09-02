@@ -32,6 +32,16 @@ PriQueue.prototype.push = function (data, pri) {
 	return this;
 }
 
+PriQueue.prototype.dequeue = function() {
+	if(!this.head) {
+		return null;
+	}
+	var temp = this.head;
+	this.head = this.head.next;
+	temp.next = null;
+	return temp;
+};
+
 PriQueue.prototype.show = function() {
 	var curr = this.head;
 	while(curr) {
@@ -57,14 +67,14 @@ PriQueue.prototype.playMessages = function() {
 	return this;
 }
 
-pq = new PriQueue();
+module.exports.PriQueue = PriQueue;
 // console.log(pq);
 // pq.push(3, 0).push(3, 1).push(4, 0).push(1,1).push(4,5).push(3,3).push(2,2).push(3,2).show();
-pq.sequenceMessage([Date.now(), "msg1"]);
-setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg3"]) }, 1000);
-pq.sequenceMessage([1687631408522, "msg5"]);
-setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg2"]) }, 500);
-setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg4"]) }, 2000);
-setTimeout(function(){ return pq.show(); }, 1499);
-setTimeout(function(){ return pq.playMessages() }, 1500);
-setTimeout(function(){ return pq.show(); }, 3000);
+// pq.sequenceMessage([Date.now(), "msg1"]);
+// setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg3"]) }, 1000);
+// pq.sequenceMessage([1687631408522, "msg5"]);
+// setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg2"]) }, 500);
+// setTimeout(function(){ return pq.sequenceMessage([Date.now(), "msg4"]) }, 2000);
+// setTimeout(function(){ return pq.show(); }, 1499);
+// setTimeout(function(){ return pq.playMessages() }, 1500);
+// setTimeout(function(){ return pq.show(); }, 3000);

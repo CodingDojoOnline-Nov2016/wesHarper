@@ -1,0 +1,8 @@
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/bin/Debug/netcoreapp1.1/fundamentals1.deps.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/bin/Debug/netcoreapp1.1/fundamentals1.runtimeconfig.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/bin/Debug/netcoreapp1.1/fundamentals1.runtimeconfig.dev.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/obj/Debug/netcoreapp1.1/fundamentals1.AssemblyInfo.cs
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/bin/Debug/netcoreapp1.1/fundamentals1.dll
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/bin/Debug/netcoreapp1.1/fundamentals1.pdb
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/obj/Debug/netcoreapp1.1/fundamentals1.dll
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/fundamentals1/obj/Debug/netcoreapp1.1/fundamentals1.pdb

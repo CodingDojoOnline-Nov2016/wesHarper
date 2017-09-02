@@ -271,13 +271,87 @@ BST.prototype.isComplete = function(node = this.root) {
 	return recurse(node);
 }
 
-var comp = new BST()
-comp.add(10).add(5).add(15).add(3).add(7).add(13).add(17).add(1);
-console.log(comp.isComplete());
+BST.prototype.findPath = function(n1, n2, rootN = this.root) {
+	let path = {
+		nodes: [],
+		pretty: []
+	};
+	function recurse(node, n) {
+		if(node) {
+			// console.log("curr", node.data, path.pretty);
+			if(node.data === n) {
+				path.nodes.push(node);
+				path.pretty.push(node.data);
+				// console.log("node found", path.pretty);
+				return true;
+			}
+			// if(path.length > 0 ) {
+			// 	path.nodes.push(node);
+			// 	path.pretty.push(node.data);
+			// 	console.log("traversing back up", path.pretty);}
+			else {
+				if(recurse(node.left, n)) {
+					// console.log("left is true");
+					path.nodes.push(node);
+					path.pretty.push(node.data);
+					// console.log("traversing back up", path.pretty);
+					return true;
+				} else if(recurse(node.right, n)) {
+					// console.log("Right is true", node.data);
+					path.nodes.push(node);
+					path.pretty.push(node.data);
+					// console.log("traversing back up", path.pretty);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	// when to recurse, when to return, what to return 
+	recurse(rootN, n1);
+	let path1 = path;
+	path = {
+		nodes: [],
+		pretty: []
+	};
+	recurse(rootN, n2);
+	let path2 = path;
+	// console.log("path 1", path1.pretty, "path 2", path2.pretty);
+
+	for(var i = path1.nodes.length - 2; i >= 0; i--) {
+		// console.log("equals", path1.pretty[1], path2.pretty[path2.pretty.length - 2]); 
+		if(path1.nodes[i] === path2.nodes[path2.nodes.length -2]) {
+			path1.nodes.length -= 1;
+			path1.pretty.length -= 1;
+			path2.nodes.length -= 1;
+			path2.pretty.length -= 1;
+			// console.log("path1", path1.pretty, "path2", path2.pretty);
+		} else {
+			path2.nodes.length -= 1;
+			path2.pretty.length -= 1;
+			path2.nodes.reverse();
+			path2.pretty.reverse();
+			// console.log("path1", path1.pretty, "path2", path2.pretty);
+			path.nodes = path1.nodes.concat(path2.nodes);
+			path.pretty = path1.pretty.concat(path2.pretty);
+			return path;
+		}
+	}
+}
+
+
+let p = new BST();
+p.add(10).add(5).add(15).add(3).add(7).add(13).add(1);
+console.log(p.findPath(7, 15).pretty);
+// console.log(p.BSTtoArray());
+
+// var comp = new BST()
+// comp.add(10).add(5).add(15).add(3).add(7).add(13).add(17).add(1);
+// console.log(comp.isComplete());
 // console.log(x.isComplete());
 
-let perf = new BST()
-perf.add(10).add(5).add(15).add(3)
+// let perf = new BST()
+// perf.add(10).add(5).add(15).add(3)
 // console.log(perf.isPerfect2());
 // var bal = new BST()
 // bal.add(5).add(3).add(7)

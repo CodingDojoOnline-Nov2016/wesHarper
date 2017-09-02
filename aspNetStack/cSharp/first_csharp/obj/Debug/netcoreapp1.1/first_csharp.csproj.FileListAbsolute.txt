@@ -1,0 +1,8 @@
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/bin/Debug/netcoreapp1.1/first_csharp.deps.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/bin/Debug/netcoreapp1.1/first_csharp.runtimeconfig.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/bin/Debug/netcoreapp1.1/first_csharp.runtimeconfig.dev.json
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/bin/Debug/netcoreapp1.1/first_csharp.dll
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/bin/Debug/netcoreapp1.1/first_csharp.pdb
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/obj/Debug/netcoreapp1.1/first_csharp.AssemblyInfo.cs
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/obj/Debug/netcoreapp1.1/first_csharp.dll
+/Users/wesharper/codingDojo/courseWork/wesHarper/aspNetStack/cSharp/first_csharp/obj/Debug/netcoreapp1.1/first_csharp.pdb
