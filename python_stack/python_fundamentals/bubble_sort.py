@@ -15,4 +15,4 @@ import random
 unsorted2 = [random.randint(0, 10000) for count in range(100)]
 
 print bubble_sort(unsorted)
-print bubble_sort(unsorted2)
+# print bubble_sort(unsorted2)
