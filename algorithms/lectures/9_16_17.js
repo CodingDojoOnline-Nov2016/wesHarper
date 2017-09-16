@@ -140,14 +140,27 @@ class SList {
 		}
 
         this.back = function back(){
-
+            // var resultback="";
+			// var back = display(this);
+			// for(i=back.length;i>0;i--) {
+			// 	resultback = back[i];
+	        // }
+            // return resultback;
+            // var len = this.length() - 1;
+            var curr = this.head;
+            while(curr.next) {
+                curr = curr.next;
+                // len--;
+            }
+            console.log(curr.value);
+            return curr.value;
         }
 
-        this.removeBack() = function removeBack() {
-
+        this.removeBack = function removeBack() {
+            
         }
 
-        this.addBack() = function addBack() {
+        this.addBack = function addBack() {
 
         }
 
@@ -157,6 +170,7 @@ class SList {
 var list = new SList();
 list.addFront("C").addFront("B").addFront("A").addFront(3);
 console.log(list.display(list.head));
+list.back()
 
 var numList = new SList();
 numList.addFront(1).addFront(10).addFront(15).addFront(4);
