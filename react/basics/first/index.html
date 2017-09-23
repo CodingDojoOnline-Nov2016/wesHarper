@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>First React</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/javascript" src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            console.log("react", React);
+            console.log("DOM", ReactDOM);
+            const myButton = React.createElement("button", null, "Click Me!");
+            console.log(JSON.stringify(myButton));
+            ReactDOM.render(myButton, document.getElementById('app'))
+        </script>
+    </body>
+</html>

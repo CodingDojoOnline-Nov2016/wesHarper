@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Voting App Pt.1</title>
+		<script src="node_modules/react/dist/react.js" charset="utf-8"></script>
+		<script src="node_modules/react-dom/dist/react-dom.js" charset="utf-8"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+		<!-- <script src="app.js" charset="utf-8"></script> -->
+		<script type="text/babel">
+			let itemsArr = [
+				{
+					name: "React",
+					numVotes: 20
+				},
+				{
+					name: "Vue",
+					numVotes: 7
+				},
+				{
+					name: "Angular",
+					numVotes: 15
+				},
+				{
+					name: "Ember",
+					numVotes: 2
+				}
+			]
+
+			const listStyle = {
+				color: "blue",
+				listStyle: "none"
+			}
+
+			const itemStyle = {
+				borderColor: "black"
+			}
+
+			const buttonStyle = {
+				backgroundColor: "green",
+				marginLeft: 20
+			}
+
+			const numberStyle = {
+				marginRight: 20
+			}
+
+			const List = (props) => {
+				const clicked = function(name) {
+					alert(`You clicked ${name}`)
+				};
+
+				const sorted = props.items.map((item) => {return item}).slice().sort((a,b) => {return b.numVotes - a.numVotes});
+
+				const listItems = sorted.map((item) => {
+					return <li key={ item.name }><span style={numberStyle}>{ item.numVotes }</span>{ item.name }<button onClick={() => {clicked(item.name)}} key={item.name} style={buttonStyle}>+</button></li>
+				});
+				return (
+					<div>
+						<h1>Vote for your favorite js Library!</h1>
+						<ul style={listStyle}>{listItems}</ul>
+					</div>
+				)
+			}
+
+			ReactDOM.render(
+				// <h1>Yo</h1>,
+				<List items={itemsArr}/>,
+				document.getElementById("root")
+			);
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+</html>
